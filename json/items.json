@@ -52,7 +52,6 @@
         "name": "Poke ball",
         "price": 200,
         "description" : "A device for catching wild Pokémon. It is thrown like a ball at the target. It is designed as a capsule system.",
-
         "image": "https://img.pokemondb.net/sprites/items/poke-ball.png"
         
     },
@@ -96,7 +95,6 @@
         "name": "TM02",
         "price": 250,
         "description" : "Teaches the move Razor Wind/Headbutt/Dragon Claw/Taunt.",
-
         "image": "https://img.pokemondb.net/sprites/items/tm-dragon.png"
         
     },
@@ -111,7 +109,6 @@
         "name": "TM11",
         "price": 350,
         "description" : "Teaches the move BubbleBeam/Sunny Day/Will-O-Wisp.",
-
         "image": "https://img.pokemondb.net/sprites/items/tm-fire.png"
         
     },
@@ -126,7 +123,6 @@
         "name": "TM02",
         "price": 250,
         "description" : "Teaches the move Razor Wind/Headbutt/Dragon Claw/Taunt.",
-
         "image": "https://img.pokemondb.net/sprites/items/tm-dragon.png"
         
     },
@@ -141,7 +137,6 @@
         "name": " Amulet Coin",
         "price": 2500,
         "description" : "Doubles prize money if held.",
-
         "image": "https://img.pokemondb.net/sprites/items/amulet-coin.png"
         
     },
