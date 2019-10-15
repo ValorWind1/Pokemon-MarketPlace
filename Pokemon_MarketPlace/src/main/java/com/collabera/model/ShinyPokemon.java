@@ -5,8 +5,8 @@ import java.math.BigInteger;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document(collection="pokemons")
-public class Pokemon {
+@Document(collection="shiny-pokemons")
+public class ShinyPokemon {
 	
 	@Id
 	private BigInteger id;
@@ -20,12 +20,12 @@ public class Pokemon {
 	private Integer defense;
 	private Integer speed;
 	
-	public Pokemon() {
+	public ShinyPokemon() {
 		
 	}
 	
-	public Pokemon(BigInteger id, String nationalNum, String name, String[] type, Sprite sprite, 
-			Integer total, Integer hp, Integer attack, Integer defense, Integer speed) {
+	public ShinyPokemon(BigInteger id, String nationalNum, String name, String[] type, 
+			Sprite sprite, Integer total, Integer hp, Integer attack, Integer defense, Integer speed) {
 		super();
 		this.id = id;
 		this.nationalNum = nationalNum;
@@ -118,44 +118,6 @@ public class Pokemon {
 	public void setSpeed(Integer speed) {
 		this.speed = speed;
 	}
-
-}
-
- class Sprite {
-	 
-	 private String normal;
-	 private String large;
-	 private String animated;
-	 
-	public Sprite() {
-		
-	}
-	 
-	public Sprite(String normal, String large, String animated) {
-		super();
-		this.normal = normal;
-		this.large = large;
-		this.animated = animated;
-	}
-	public String getNormal() {
-		return normal;
-	}
-	public void setNormal(String normal) {
-		this.normal = normal;
-	}
-	public String getLarge() {
-		return large;
-	}
-	public void setLarge(String large) {
-		this.large = large;
-	}
-	public String getAnimated() {
-		return animated;
-	}
-	public void setAnimated(String animated) {
-		this.animated = animated;
-	}
-	 
-	 
+	
 	
 }
