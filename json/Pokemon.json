@@ -1,4 +1,5 @@
-        {
+[     
+      {    
         "national_number": "001",
         "evolution": null,
         "sprites": {
@@ -19093,4 +19094,4 @@
         "speed": 143
       }
   
-  }
+]
