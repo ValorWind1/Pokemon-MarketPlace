@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.collabera.dto.PokemonDTO;
-import com.collabera.mapper.PokemonMapper;
+import com.collabera.mappers.PokemonMapper;
 import com.collabera.model.Pokemon;
 import com.collabera.repository.PokeDatabase;
 
@@ -30,7 +30,7 @@ public class PokeService {
 
 	public List<PokemonDTO> getAll() {
 		
-		return Repo.findAll().stream().map(m -> Map.toDTO(m)).collect(Collectors.toList());;
+		return Repo.findAll().stream().map(m -> Map.toDTO(m)).collect(Collectors.toList());
 	}
 	
 	public PokemonDTO findById(BigInteger id) {

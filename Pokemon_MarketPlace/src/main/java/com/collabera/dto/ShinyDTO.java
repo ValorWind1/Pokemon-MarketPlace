@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 import com.collabera.model.Sprite;
 
-public class ShiniesDTO {
+public class ShinyDTO {
 	
 	private BigInteger id;
 	private String nationalNum;
@@ -17,11 +17,11 @@ public class ShiniesDTO {
 	private Integer defense;
 	private Integer speed;
 	
-	public ShiniesDTO() {
+	public ShinyDTO() {
 		
 	}
 	
-	public ShiniesDTO(BigInteger id, String nationalNum, String name, String[] type, 
+	public ShinyDTO(BigInteger id, String nationalNum, String name, String[] type, 
 			Sprite sprite, Integer total, Integer hp, Integer attack, Integer defense, Integer speed) {
 		super();
 		this.id = id;

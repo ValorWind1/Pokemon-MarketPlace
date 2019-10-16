@@ -4,15 +4,18 @@ import java.math.BigInteger;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
 @Document(collection="shiny-pokemons")
 public class ShinyPokemon {
 	
 	@Id
 	private BigInteger id;
+	@Field("national_number")
 	private String nationalNum;
 	private String name;
 	private String[] type;
+	@Field("sprites")
 	private Sprite sprite;
 	private Integer total;
 	private Integer hp;

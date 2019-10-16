@@ -9,7 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.collabera.dto.ShiniesDTO;
+import com.collabera.dto.ShinyDTO;
+import com.collabera.mappers.ShinyMapper;
 import com.collabera.model.ShinyPokemon;
 import com.collabera.repository.ShinyPokeDatabase;
 
@@ -27,12 +28,12 @@ public class ShinyService {
 		Map = map;
 	}
 
-	public List<ShiniesDTO> getAll() {
+	public List<ShinyDTO> getAll() {
 
-		return Repo.findAll().stream().map(m -> Map.toDTO(m)).collect(Collectors.toList());;
+		return Repo.findAll().stream().map(m -> Map.toDTO(m)).collect(Collectors.toList());
 	}
 
-	public ShiniesDTO findById(BigInteger id) {
+	public ShinyDTO findById(BigInteger id) {
 		Optional<ShinyPokemon> shinyOP = Repo.findById(id);
 		if (shinyOP.isPresent()) {
 			return Map.toDTO(shinyOP.get());
@@ -40,13 +41,13 @@ public class ShinyService {
 		return null;
 	}
 
-	public ShiniesDTO save(ShiniesDTO shiny) {
+	public ShinyDTO save(ShinyDTO shiny) {
 		ShinyPokemon entity = Map.toEntity(shiny);
 		ShinyPokemon saved = Repo.insert(entity);
 		return Map.toDTO(saved);
 	}
 
-	public ShiniesDTO update(ShiniesDTO shiny) {
+	public ShinyDTO update(ShinyDTO shiny) {
 		BigInteger id = shiny.getId();
 		Optional<ShinyPokemon> findById = Repo.findById(id);
 		if (findById.isPresent()) {

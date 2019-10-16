@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.collabera.dto.ItemDTO;
+import com.collabera.mappers.ItemMapper;
 import com.collabera.model.Item;
 import com.collabera.repository.ItemDatabase;
 
@@ -29,7 +30,7 @@ public class ItemService {
 
 	public List<ItemDTO> getAll() {
 
-		return Repo.findAll().stream().map(m -> Map.toDTO(m)).collect(Collectors.toList());;
+		return Repo.findAll().stream().map(m -> Map.toDTO(m)).collect(Collectors.toList());
 	}
 
 	public ItemDTO findById(BigInteger id) {
