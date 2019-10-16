@@ -11,25 +11,21 @@ import { CartComponent } from './cart/cart.component';
 import { ShinyListComponent } from './shiny-list/shiny-list.component';
 
 import { PokeItemsComponent } from './poke-items/poke-items.component';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-
     NavbarComponent,
     AboutComponent,
-    CartComponent
-
-
+    CartComponent,
     PokeListComponent,
     NavbarComponent,
-    ShinyListComponent
-
+    ShinyListComponent,
     NavbarComponent,
-    PokeItemsComponent
-
-
+    PokeItemsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
