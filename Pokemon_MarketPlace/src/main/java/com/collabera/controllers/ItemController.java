@@ -1,5 +1,6 @@
 package com.collabera.controllers;
 
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.collabera.dto.ItemDTO;
 import com.collabera.services.ItemService;
 
 
@@ -28,35 +30,35 @@ public class ItemController {
 		this.service = service;
 	}
 
-	@GetMapping("/api/Item")
+	@GetMapping("/api/item")
 	public List<ItemDTO> getAll() {
 		
-		return service.findAll();
+		return service.getAll();
 	}
 
-	@GetMapping("/api/Item/{id}")
-	public ResponseEntity<ItemDTO> getByID(@PathVariable int id) {
+	@GetMapping("/api/item/{id}")
+	public ResponseEntity<ItemDTO> getByID(@PathVariable BigInteger id) {
 		ItemDTO hero = service.findById(id);
 
 		return ResponseEntity.ok(hero);
 	}
 
-	@PostMapping("/api/Item")
+	@PostMapping("/api/item")
 	public ResponseEntity<ItemDTO> post(@RequestBody @Valid ItemDTO item) throws URISyntaxException {
 
 		ItemDTO result = service.save(item);
-		return ResponseEntity.created(new URI("/api/Item/" + result.getId())).body(result);
+		return ResponseEntity.created(new URI("/api/item/" + result.getId())).body(result);
 	}
 
-	@PutMapping("/api/Item")
+	@PutMapping("/api/item")
 	public ResponseEntity<ItemDTO> update(@RequestBody @Valid ItemDTO item) {
 		ItemDTO result = service.update(item);
 		
 		return ResponseEntity.ok().body(result);
 	}
 
-	@DeleteMapping("/api/Item/{id}")
-	public ResponseEntity<Void> deleteByID(@PathVariable int id) {
+	@DeleteMapping("/api/item/{id}")
+	public ResponseEntity<Void> deleteByID(@PathVariable BigInteger id) {
 
 		service.deleteById(id);
 		return ResponseEntity.ok().build();

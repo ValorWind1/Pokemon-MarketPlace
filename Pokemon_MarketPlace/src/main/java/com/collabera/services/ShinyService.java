@@ -1,11 +1,17 @@
 package com.collabera.services;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.collabera.dto.ShiniesDTO;
+import com.collabera.model.ShinyPokemon;
+import com.collabera.repository.ShinyPokeDatabase;
 
 @Service
 @Transactional
@@ -23,11 +29,11 @@ public class ShinyService {
 
 	public List<ShiniesDTO> getAll() {
 
-		return Repo.findAll();
+		return Repo.findAll().stream().map(m -> Map.toDTO(m)).collect(Collectors.toList());;
 	}
 
-	public ShiniesDTO findById(int id) {
-		Optional<Shiny> shinyOP = Repo.findById(id);
+	public ShiniesDTO findById(BigInteger id) {
+		Optional<ShinyPokemon> shinyOP = Repo.findById(id);
 		if (shinyOP.isPresent()) {
 			return Map.toDTO(shinyOP.get());
 		}
@@ -35,25 +41,25 @@ public class ShinyService {
 	}
 
 	public ShiniesDTO save(ShiniesDTO shiny) {
-		Shiny entity = Map.toEntity(shiny);
-		Shiny saved = Repo.insert(entity);
+		ShinyPokemon entity = Map.toEntity(shiny);
+		ShinyPokemon saved = Repo.insert(entity);
 		return Map.toDTO(saved);
 	}
 
 	public ShiniesDTO update(ShiniesDTO shiny) {
-		int id = shiny.getId();
-		Optional<Shiny> findById = Repo.findById(id);
+		BigInteger id = shiny.getId();
+		Optional<ShinyPokemon> findById = Repo.findById(id);
 		if (findById.isPresent()) {
-	-		Shiny updatedshiny = findById.get();
+			ShinyPokemon updatedShiny = findById.get();
 			// add update logic when models are made
-			Shiny saved = Repo.save(updatedShiny);
+			ShinyPokemon saved = Repo.save(updatedShiny);
 			return Map.toDTO(saved);
 		} else {
 			throw new IllegalArgumentException();
 		}
 	}
 
-	public void deleteById(int id) {
+	public void deleteById(BigInteger id) {
 		Repo.deleteById(id);
 	}
 
