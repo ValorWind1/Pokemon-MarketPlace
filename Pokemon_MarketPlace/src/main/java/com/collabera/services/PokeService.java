@@ -1,11 +1,18 @@
 package com.collabera.services;
 
+import java.math.BigInteger;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import com.collabera.dto.PokemonDTO;
+import com.collabera.mapper.PokemonMapper;
+import com.collabera.model.Pokemon;
+import com.collabera.repository.PokeDatabase;
 
 @Service
 @Transactional
@@ -23,10 +30,10 @@ public class PokeService {
 
 	public List<PokemonDTO> getAll() {
 		
-		return Repo.findAll();
+		return Repo.findAll().stream().map(m -> Map.toDTO(m)).collect(Collectors.toList());;
 	}
 	
-	public PokemonDTO findById(int id) {
+	public PokemonDTO findById(BigInteger id) {
 		Optional<Pokemon> pokeOP = Repo.findById(id);
 		if (pokeOP.isPresent()) {
 			return Map.toDTO(pokeOP.get());
@@ -41,7 +48,7 @@ public class PokeService {
 	}
 
 	public PokemonDTO update(PokemonDTO poke) {
-		int id = poke.getId();
+		BigInteger id = poke.getId();
 		Optional<Pokemon> findById = Repo.findById(id);
 		if (findById.isPresent()) {
 			Pokemon updatedPoke = findById.get();
@@ -53,7 +60,7 @@ public class PokeService {
 		}
 	}
 
-	public void deleteById(int id) {
+	public void deleteById(BigInteger id) {
 		Repo.deleteById(id);
 	}
 	

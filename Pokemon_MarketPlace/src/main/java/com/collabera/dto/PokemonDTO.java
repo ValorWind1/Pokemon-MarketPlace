@@ -1,8 +1,10 @@
 package com.collabera.dto;
 
+import java.math.BigInteger;
+
 public class PokemonDTO {
 	
-	private Integer id; 
+	private BigInteger id; 
 	private String national_number; 
 	private Sprites sprites; 
 	private String name;
@@ -15,10 +17,11 @@ public class PokemonDTO {
 	private Integer sp_atk;
 	private Integer sp_def;
 	private Integer speed;
-	public Integer getId() {
+	
+	public BigInteger getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(BigInteger id) {
 		this.id = id;
 	}
 	public String getNational_number() {

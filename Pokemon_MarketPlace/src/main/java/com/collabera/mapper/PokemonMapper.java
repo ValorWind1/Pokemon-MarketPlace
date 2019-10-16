@@ -1,13 +1,9 @@
 package com.collabera.mapper;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 import org.springframework.stereotype.Component;
 
-import com.collabera.dto.ItemDTO;
 import com.collabera.dto.PokemonDTO;
-import com.collabera.dto.ShiniesDTO;
+import com.collabera.model.Pokemon;
 
 @Component
 public class PokemonMapper {
