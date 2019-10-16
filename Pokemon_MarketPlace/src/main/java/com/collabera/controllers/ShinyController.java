@@ -1,5 +1,6 @@
 package com.collabera.controllers;
 
+import java.math.BigInteger;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.List;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.collabera.dto.ShiniesDTO;
 import com.collabera.services.ShinyService;
 
 @RestController
@@ -27,35 +29,35 @@ public class ShinyController {
 		this.service = service;
 	}
 
-	@GetMapping("/api/Shiny")
+	@GetMapping("/api/shiny")
 	public List<ShiniesDTO> getAll() {
 		
-		return service.findAll();
+		return service.getAll();
 	}
 
-	@GetMapping("/api/Shiny/{id}")
-	public ResponseEntity<ShiniesDTO> getByID(@PathVariable int id) {
+	@GetMapping("/api/shiny/{id}")
+	public ResponseEntity<ShiniesDTO> getByID(@PathVariable BigInteger id) {
 		ShiniesDTO hero = service.findById(id);
 
 		return ResponseEntity.ok(hero);
 	}
 
-	@PostMapping("/api/Shiny")
+	@PostMapping("/api/shiny")
 	public ResponseEntity<ShiniesDTO> post(@RequestBody @Valid ShiniesDTO shiny) throws URISyntaxException {
 
 		ShiniesDTO result = service.save(shiny);
-		return ResponseEntity.created(new URI("/api/Shiny/" + result.getId())).body(result);
+		return ResponseEntity.created(new URI("/api/shiny/" + result.getId())).body(result);
 	}
 
-	@PutMapping("/api/Shiny")
+	@PutMapping("/api/shiny")
 	public ResponseEntity<ShiniesDTO> update(@RequestBody @Valid ShiniesDTO shiny) {
 		ShiniesDTO result = service.update(shiny);
 		
 		return ResponseEntity.ok().body(result);
 	}
 
-	@DeleteMapping("/api/Shiny/{id}")
-	public ResponseEntity<Void> deleteByID(@PathVariable int id) {
+	@DeleteMapping("/api/shiny/{id}")
+	public ResponseEntity<Void> deleteByID(@PathVariable BigInteger id) {
 
 		service.deleteById(id);
 		return ResponseEntity.ok().build();
