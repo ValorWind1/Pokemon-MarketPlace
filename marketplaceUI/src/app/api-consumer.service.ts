@@ -21,7 +21,7 @@ export class ApiConsumerService {
 
   endpoint() {
     if (this.Isshiny){
-      return this.BaseEndpoint + "shiny";
+      return this.BaseEndpoint + 'shiny';
     }
   }
 
