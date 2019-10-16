@@ -1,15 +1,17 @@
 import { Injectable, Input } from '@angular/core';
-import { HttpClient } from 'selenium-webdriver/http';
-import { Subject, Observable } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Pokemon } from './Pokemon';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiConsumerService {
 
-  @Input() Isshiny: boolean;
+  @Input() IsShiny: boolean;
 
-  private BaseEndpoint = 'http://localhost:8080/api/';
+  private endpoint = 'http://localhost:8080/api/pokemon';
+
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -17,51 +19,41 @@ export class ApiConsumerService {
     })
   };
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
 
-  endpoint() {
-    if (this.Isshiny){
-      return this.BaseEndpoint + 'shiny';
+    if (this.IsShiny) {
+      this.endpoint = 'http://localhost:8080/api/shiny';
     }
+
   }
 
 
 
-  heroUpdatedSubject: Subject<Hero> = new Subject<Hero>();
+  getPokemon(): Observable<Pokemon[]> {
 
-  subscribeToHeroUpdates(): Subject<Hero> {
-    return this.heroUpdatedSubject;
+      return (this.http.get<Pokemon[]>(this.endpoint));
   }
 
-  getHeroes(): Observable<Hero[]> {
-
-    return (this.http.get<Hero[]>(this.endpoint));
-  }
-
-  getHero(id: number): Observable<Hero> {
+  get1Pokemon(id: number): Observable<Pokemon> {
     const url = `${this.endpoint}/${id}`;
-    return this.http.get<Hero>(url);
+    return this.http.get<Pokemon>(url);
   }
 
-  addHero(hero: Hero): Observable<Hero> {
+  addPokemon(poke: Pokemon): Observable<Pokemon> {
     console.log('inside add method');
-    return this.http.post<any>(this.endpoint, JSON.stringify(hero), this.httpOptions);
+    return this.http.post<any>(this.endpoint, JSON.stringify(poke), this.httpOptions);
   }
 
-  updateHero(hero: Hero): Observable<any> {
-    return this.http.put(this.endpoint, JSON.stringify(hero), this.httpOptions);
+  updatePokemon(poke: Pokemon): Observable<any> {
+    return this.http.put(this.endpoint, JSON.stringify(poke), this.httpOptions);
 
   }
 
-  deleteHero(hero: Hero | number): Observable<Hero> {
-    const id = typeof hero === 'number' ? hero : hero.id;
+  deletePokemon(poke: Pokemon | number): Observable<Pokemon> {
+    const id = typeof poke === 'number' ? poke : poke.id;
     const url = `${this.endpoint}/${id}`;
 
-    return this.http.delete<Hero>(url, this.httpOptions);
-  }
-
-  heroUpdated(hero: Hero) {
-    this.heroUpdatedSubject.next(hero);
+    return this.http.delete<Pokemon>(url, this.httpOptions);
   }
 
 }
