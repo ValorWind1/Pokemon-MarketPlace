@@ -154,8 +154,5 @@ public class Pokemon {
 	}
 	public void setAnimated(String animated) {
 		this.animated = animated;
-	}
-	 
-	 
-	
+	}	
 }

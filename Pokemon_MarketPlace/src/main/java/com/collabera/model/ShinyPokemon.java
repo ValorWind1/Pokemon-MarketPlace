@@ -117,7 +117,5 @@ public class ShinyPokemon {
 
 	public void setSpeed(Integer speed) {
 		this.speed = speed;
-	}
-	
-	
+	}	
 }
