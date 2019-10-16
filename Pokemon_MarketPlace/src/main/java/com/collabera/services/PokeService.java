@@ -4,18 +4,18 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import com.collabera.mha.dto.StudentDTO;
-import com.collabera.mha.model.StudentModel;
-import com.collabera.mongodbtest.model.Jojo;
-
+@Service
+@Transactional
 public class PokeService {
 
 	@Autowired
-	private final PokeRepo Repo;
+	private final PokeDatabase Repo;
 	private final PokemonMapper Map;
 	
-	public PokeService(PokeRepo repo, PokemonMapper map) {
+	public PokeService(PokeDatabase repo, PokemonMapper map) {
 		super();
 		this.Repo = repo;
 		Map = map;
@@ -44,11 +44,9 @@ public class PokeService {
 		int id = poke.getId();
 		Optional<Pokemon> findById = Repo.findById(id);
 		if (findById.isPresent()) {
-			Pokemon uHero = findById.get();
-			uHero.setName(poke.getName());
-			uHero.setHeroName(poke.getHeroName());
-			uHero.setQuirk(poke.getQuirk());
-			Pokemon saved = Repo.save(uHero);
+			Pokemon updatedPoke = findById.get();
+			//add update logic when models are made
+			Pokemon saved = Repo.save(updatedPoke);
 			return Map.toDTO(saved);
 		} else { 
 			throw new IllegalArgumentException();
@@ -58,7 +56,5 @@ public class PokeService {
 	public void deleteById(int id) {
 		Repo.deleteById(id);
 	}
-	
-	
 	
 }
