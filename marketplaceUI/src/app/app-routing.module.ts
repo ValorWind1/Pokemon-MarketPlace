@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AboutComponent } from './about/about.component';
+import { PokeItemsComponent } from './poke-items/poke-items.component';
+import { ShinyListComponent } from './shiny-list/shiny-list.component';
+import { PokeListComponent } from './poke-list/poke-list.component';
+import { CartComponent } from './cart/cart.component';
+import { HomeComponent } from './home/home.component';
 
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'}, // default path
   {path: 'home', component: HomeComponent},
-  {path: 'pokemon', component: PokemonComponent},
-  {path: 'shiny-pokemon',component: shinyComponent}
-  {path: 'item', component: ItemComponent},
+  {path: 'pokemon', component: PokeListComponent},
+  {path: 'shiny-pokemon', component: ShinyListComponent},
+  {path: 'item', component: PokeItemsComponent},
   {path: 'about', component: AboutComponent},
-  {path: 'cart', component: CartComponent},
-  {path: '**', component: PageNotFoundComponent}];
+  {path: 'cart', component: CartComponent}
+  //{path: '**', component: PageNotFoundComponent}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
