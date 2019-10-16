@@ -14,9 +14,11 @@ export class PokeListComponent implements OnInit {
   constructor(private service: ApiConsumerService) { }
 
   getPokemon(): void {
+
     this.service.getPokemon()
-    .subscribe(poke => this.pokemon = poke);
+    .subscribe(poke => {this.pokemon = poke;console.log(poke)});
     console.log(this.pokemon);
+
   }
 
   ngOnInit() {
