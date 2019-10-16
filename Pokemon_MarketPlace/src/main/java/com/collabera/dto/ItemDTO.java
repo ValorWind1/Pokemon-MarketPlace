@@ -1,17 +1,36 @@
 package com.collabera.dto;
 
+import java.math.BigInteger;
+
 public class ItemDTO {
 	 
-	private String name ; 
+	private BigInteger id;
+	private String name;
+	private Integer price;
+	private String description;
+	private String image;
 	
-	private Integer price ; 
+	public ItemDTO() {
+		
+	}
 	
-	private String drescription; 
-	
-	private String image ;
+	public ItemDTO(BigInteger id, String name, Integer price, String description, String image) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.price = price;
+		this.description = description;
+		this.image = image;
+	}
 
-	
-	
+	public BigInteger getId() {
+		return id;
+	}
+
+	public void setId(BigInteger id) {
+		this.id = id;
+	}
+
 	public String getName() {
 		return name;
 	}
@@ -20,7 +39,7 @@ public class ItemDTO {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 
@@ -28,12 +47,12 @@ public class ItemDTO {
 		this.price = price;
 	}
 
-	public String getDrescription() {
-		return drescription;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setDrescription(String drescription) {
-		this.drescription = drescription;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public String getImage() {
@@ -43,13 +62,5 @@ public class ItemDTO {
 	public void setImage(String image) {
 		this.image = image;
 	}
-
-	@Override
-	public String toString() {
-		return "ItemDTO [name=" + name + ", price=" + price + ", drescription=" + drescription + ", image=" + image
-				+ "]";
-	} 
-	
-	
 	
 }
