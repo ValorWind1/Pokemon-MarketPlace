@@ -12,4 +12,6 @@ export class PokeItemsComponent implements OnInit {
   ngOnInit() {
   }
 
+
+  
 }
