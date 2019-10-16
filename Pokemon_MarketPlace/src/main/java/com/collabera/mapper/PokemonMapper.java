@@ -11,18 +11,34 @@ public class PokemonMapper {
 	public Pokemon toEntity(PokemonDTO dto) {
 		Pokemon pokemon = new Pokemon();
 		
-		pokemon.setName(dto.ItemDTO());
-		pokemon.setCategory(dto.PokemonDTO());
-		pokemon.setName(dto.ShiniesDTO());
-		return pokemon ; 
+		pokemon.setName(dto.getName());
+		pokemon.setNationalNum(dto.getNational_number());
+		pokemon.setName(dto.getName());
+		pokemon.setType(dto.getType());
+		pokemon.setSprite(dto.getSprites());
+		pokemon.setTotal(dto.getTotal());
+		pokemon.setHp(dto.getHp());
+		pokemon.setAttack(dto.getAttack());
+		pokemon.setDefense(dto.getDefense());
+		pokemon.setSpeed(dto.getSpeed());
+		
+		return pokemon; 
 
 }
 
-	public PokemonDTO toDto(Pokemon entity) {
+	public PokemonDTO toDTO(Pokemon entity) {
 		PokemonDTO pokemon = new PokemonDTO();
-		pokemon.setMovieId(entity.getId());
+		pokemon.setId(entity.getId());
 		pokemon.setName(entity.getName());
-		pokemon.setCategory(entity.getCategory());	
+		pokemon.setNational_number(entity.getNationalNum());
+		pokemon.setName(entity.getName());
+		pokemon.setType(entity.getType());
+		pokemon.setSprite(entity.getSprites());
+		pokemon.setTotal(entity.getTotal());
+		pokemon.setHp(entity.getHp());
+		pokemon.setAttack(entity.getAttack());
+		pokemon.setDefense(entity.getDefense());
+		pokemon.setSpeed(entity.getSpeed());	
 		return pokemon;
 	}
 }
