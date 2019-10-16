@@ -4,7 +4,7 @@ public class ItemDTO {
 	 
 	private String name ; 
 	
-	private int price ; 
+	private Integer price ; 
 	
 	private String drescription; 
 	
@@ -24,7 +24,7 @@ public class ItemDTO {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 
