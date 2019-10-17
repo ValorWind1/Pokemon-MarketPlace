@@ -1,0 +1,11 @@
+.imgedit {
+  height: 2em;
+  width: 2.5em;
+
+}
+
+.nav-item {
+  display: inline-block;
+border-right: 1px solid #ccc;
+padding: 0 .25em;
+}
