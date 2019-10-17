@@ -1,9 +1,9 @@
 export class Pokemon {
   id: number;
-  nationalNum: string;
+  nationalNum: number;
   name: string;
   type: string[];
-  sprite: object;
+  sprite ;
   total: number;
   hp: number;
   attack: number;
