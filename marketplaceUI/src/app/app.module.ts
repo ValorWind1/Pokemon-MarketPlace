@@ -12,6 +12,7 @@ import { ShinyListComponent } from './shiny-list/shiny-list.component';
 
 import { PokeItemsComponent } from './poke-items/poke-items.component';
 import { HomeComponent } from './home/home.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { HomeComponent } from './home/home.component';
     ShinyListComponent,
     NavbarComponent,
     PokeItemsComponent,
-    HomeComponent
+    HomeComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,

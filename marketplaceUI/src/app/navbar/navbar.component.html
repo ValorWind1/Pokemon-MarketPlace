@@ -11,24 +11,25 @@
       </li>
 
       <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Pokemons
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" [routerLink]="['/pokemon']" routerLinkActive="router-link-active" >Normal</a>
-          <a class="dropdown-item" [routerLink]="['/shiny-pokemon']" routerLinkActive="router-link-active" >Shiny</a>
+          <a class="dropdown-item" [routerLink]="['/pokemon']" routerLinkActive="router-link-active">Normal</a>
+          <a class="dropdown-item" [routerLink]="['/shiny-pokemon']" routerLinkActive="router-link-active">Shiny</a>
         </div>
       </li>
+
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/item']" routerLinkActive="router-link-active" >Items</a>
+        <a class="nav-link" [routerLink]="['/item']" routerLinkActive="router-link-active">Items</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active" >About</a>
+        <a class="nav-link" [routerLink]="['/about']" routerLinkActive="router-link-active">About</a>
       </li>
     </ul>
     <ul class="navbar-nav ml-auto nav-fill">
-    <li class="nav-item">
-      <a class="nav-link" [routerLink]="['/cart']" routerLinkActive="router-link-active" >Cart</a>
+    <li class="nav-item w-50">
+      <a class="nav-link" [routerLink]="['/cart']" routerLinkActive="router-link-active">Cart</a>
     </li>
     </ul>
   </div>
