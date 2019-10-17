@@ -74,6 +74,7 @@ export class ApiConsumerService {
 
     return this.http.delete<Pokemon>(url, this.httpOptions);
   }
+  
 
 }
 
