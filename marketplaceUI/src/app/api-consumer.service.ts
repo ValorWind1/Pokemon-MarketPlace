@@ -53,5 +53,27 @@ export class ApiConsumerService {
     return (this.http.get<Pokemon[]>(this.shinyEndpoint));
   }
 
+  get1ShinyPokemon(id: number): Observable<Pokemon> {
+    const url = `${this.shinyEndpoint}/${id}`;
+    return this.http.get<Pokemon>(url);
+  }
+
+  addShinyPokemon(poke: Pokemon): Observable<Pokemon> {
+
+    return this.http.post<any>(this.shinyEndpoint, JSON.stringify(poke), this.httpOptions);
+  }
+
+  updateShinyPokemon(poke: Pokemon): Observable<any> {
+    return this.http.put(this.shinyEndpoint, JSON.stringify(poke), this.httpOptions);
+
+  }
+
+  deleteShinyPokemon(poke: Pokemon | number): Observable<Pokemon> {
+    const id = typeof poke === 'number' ? poke : poke.id;
+    const url = `${this.shinyEndpoint}/${id}`;
+
+    return this.http.delete<Pokemon>(url, this.httpOptions);
+  }
+
 }
 
