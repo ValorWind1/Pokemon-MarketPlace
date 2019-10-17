@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiConsumerService } from '../api-consumer.service';
+import { HttpClient } from "@angular/common/http";
 import { Pokemon } from '../Pokemon';
 
 @Component({
@@ -16,9 +17,14 @@ export class PokeListComponent implements OnInit {
   getPokemon(): void {
 
     this.service.getPokemon()
-    .subscribe(poke => {this.pokemon = poke;console.log(poke)});
-    console.log(this.pokemon);
+    .subscribe(poke => {this.pokemon = poke; this.pokemon.sort((a, b) => a.nationalNum - b.nationalNum); });
 
+
+  }
+
+  log() {
+
+    this.pokemon.sort((a, b) => a.nationalNum - b.nationalNum);
   }
 
   ngOnInit() {

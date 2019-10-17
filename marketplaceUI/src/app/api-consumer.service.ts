@@ -31,7 +31,7 @@ export class ApiConsumerService {
 
 
   getPokemon(): Observable<Pokemon[]> {
-      console.log(this.http.get<Pokemon[]>(this.endpoint));
+
       return (this.http.get<Pokemon[]>(this.endpoint));
   }
 
