@@ -1,3 +1,5 @@
+package com.collabera.config;
+
 
 
 import org.springframework.context.annotation.Configuration;
