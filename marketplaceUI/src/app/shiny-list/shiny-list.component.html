@@ -1,11 +1,12 @@
-<div class="active-pink-3 active-pink-4 mb-4">
+<div class="active-pink-3 active-pink-4 mb-4 container-fluid">
     <input class="form-control" type="text" placeholder="Enter Pokemon Name..." aria-label="Search">
-    <button (onclick)="filter()"class="btn btn-success" type="button">Search</button>
+    <button class="btn btn-success" type="button">Search</button>
   </div>
 
+<div class="container-fluid">
 <table class="table table-bordered">
   <thead class="thead-dark">
-    <tr>
+    <tr class="text-center">
       <th scope="col">#</th>
       <th scope="col">Image</th>
       <th scope="col">Name</th>
@@ -15,7 +16,7 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let poke of pokemon">
+    <tr *ngFor="let poke of pokemon" class="text-center">
 
       <td>{{poke.nationalNum}}</td>
       <td><img src = {{poke.sprite.animated}}></td>
@@ -29,7 +30,9 @@
         Speed: {{poke.speed}}<br>
         </p>
       </div></td>
-      <td><button type="button" class="btn btn-success">Add</button></td>
+      <td><button type="button" class="btn btn-success">Add </button>
+        <p>${{poke.price}}</p></td>
     </tr>
   </tbody>
 </table>
+</div>
