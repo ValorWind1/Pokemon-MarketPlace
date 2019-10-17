@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-poke-items',
   templateUrl: './poke-items.component.html',
@@ -13,5 +14,5 @@ export class PokeItemsComponent implements OnInit {
   }
 
 
-  
+
 }
