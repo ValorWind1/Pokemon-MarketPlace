@@ -41,5 +41,7 @@ deleteItem(id: number): Observable<{}> {
 addItem(item: Items): Observable<any> {
   return this.http.post(this.endpoint, JSON.stringify(item), this.httpOptions);
 
-}
+    }
+
+
 }
