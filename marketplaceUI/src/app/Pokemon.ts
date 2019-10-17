@@ -9,4 +9,5 @@ export class Pokemon {
   attack: number;
   defense: number;
   speed: number;
+  price: number;
 }
