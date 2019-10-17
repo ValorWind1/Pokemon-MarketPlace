@@ -1,11 +1,17 @@
-<div class="active-pink-3 active-pink-4 mb-4">
+<div class="active-pink-3 active-pink-4 mb-4 container-fluid">
     <input class="form-control" type="text" placeholder="Enter Pokemon Name..." aria-label="Search">
-    <button (onclick)="filter()"class="btn btn-success" type="button">Search</button>
+    <button class="btn btn-success" type="button">Search</button>
   </div>
 
+<<<<<<< HEAD
+<div class="container-fluid">
+=======
+
+  <div style="text-align: center;">
+>>>>>>> 59ecb7a913dce18e40fd9f25d3323c8bbf16f36e
 <table class="table table-bordered">
   <thead class="thead-dark">
-    <tr>
+    <tr class="text-center">
       <th scope="col">#</th>
       <th scope="col">Image</th>
       <th scope="col">Name</th>
@@ -15,12 +21,13 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let poke of pokemon">
+    <tr *ngFor="let poke of pokemon" class="text-center">
 
       <td>{{poke.nationalNum}}</td>
       <td><img src = {{poke.sprite.animated}}></td>
       <td>{{poke.name}}</td>
-      <td>{{poke.type}}</td>
+      <td *ngIf="poke.type[1]">{{poke.type[0]}}/{{poke.type[1]}}</td>
+      <td *ngIf="!poke.type[1]">{{poke.type[0]}}</td>
       <td><div>
        <p>Total: {{poke.total}}<br>
         Health: {{poke.hp}}<br>
@@ -29,7 +36,9 @@
         Speed: {{poke.speed}}<br>
         </p>
       </div></td>
-      <td><button type="button" class="btn btn-success">Add</button></td>
+      <td><button type="button" class="btn btn-success">Add </button>
+        <p>${{poke.price}}</p></td>
     </tr>
   </tbody>
 </table>
+</div>
