@@ -10,8 +10,6 @@ import { Pokemon } from '../Pokemon';
 export class ShinyListComponent implements OnInit {
 
   pokemon: Pokemon[];
-  price: any;
-
   constructor(private service: ApiConsumerService) { }
 
   getShinyPokemon(): void {
