@@ -12,7 +12,7 @@ public class PokemonMapper {
 		Pokemon pokemon = new Pokemon();
 		
 		pokemon.setName(dto.getName());
-		pokemon.setNationalNum(dto.getNationalNum());
+		pokemon.setNationalNum(String.valueOf(dto.getNationalNum()));
 		pokemon.setName(dto.getName());
 		pokemon.setType(dto.getType());
 		pokemon.setSprite(dto.getSprite());
@@ -30,7 +30,7 @@ public class PokemonMapper {
 		PokemonDTO pokemon = new PokemonDTO();
 		pokemon.setId(entity.getId());
 		pokemon.setName(entity.getName());
-		pokemon.setNationalNum(entity.getNationalNum());
+		pokemon.setNationalNum(Integer.parseInt(entity.getNationalNum()));
 		pokemon.setName(entity.getName());
 		pokemon.setType(entity.getType());
 		pokemon.setSprite(entity.getSprite());

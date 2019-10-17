@@ -1,5 +1,6 @@
 import { Injectable, Input } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Observable } from 'rxjs';
 import { Pokemon } from './Pokemon';
 
@@ -40,7 +41,7 @@ export class ApiConsumerService {
   }
 
   addPokemon(poke: Pokemon): Observable<Pokemon> {
-    console.log('inside add method');
+
     return this.http.post<any>(this.endpoint, JSON.stringify(poke), this.httpOptions);
   }
 
