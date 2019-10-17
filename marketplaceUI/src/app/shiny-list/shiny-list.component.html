@@ -3,7 +3,12 @@
     <button class="btn btn-success" type="button">Search</button>
   </div>
 
+<<<<<<< HEAD
 <div class="container-fluid">
+=======
+
+  <div style="text-align: center;">
+>>>>>>> 59ecb7a913dce18e40fd9f25d3323c8bbf16f36e
 <table class="table table-bordered">
   <thead class="thead-dark">
     <tr class="text-center">
@@ -21,7 +26,8 @@
       <td>{{poke.nationalNum}}</td>
       <td><img src = {{poke.sprite.animated}}></td>
       <td>{{poke.name}}</td>
-      <td>{{poke.type}}</td>
+      <td *ngIf="poke.type[1]">{{poke.type[0]}}/{{poke.type[1]}}</td>
+      <td *ngIf="!poke.type[1]">{{poke.type[0]}}</td>
       <td><div>
        <p>Total: {{poke.total}}<br>
         Health: {{poke.hp}}<br>
