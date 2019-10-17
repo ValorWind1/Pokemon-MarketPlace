@@ -9,9 +9,8 @@ import { Pokemon } from './Pokemon';
 })
 export class ApiConsumerService {
 
-  @Input() IsShiny: boolean;
-
   private endpoint = 'http://localhost:8080/api/pokemon';
+  private shinyEndpoint = 'http://localhost:8080/api/shiny';
 
 
   httpOptions = {
@@ -20,15 +19,7 @@ export class ApiConsumerService {
     })
   };
 
-  constructor(private http: HttpClient) {
-
-    if (this.IsShiny) {
-      this.endpoint = 'http://localhost:8080/api/shiny';
-    }
-
-  }
-
-
+  constructor(private http: HttpClient) {}
 
   getPokemon(): Observable<Pokemon[]> {
 
@@ -53,6 +44,33 @@ export class ApiConsumerService {
   deletePokemon(poke: Pokemon | number): Observable<Pokemon> {
     const id = typeof poke === 'number' ? poke : poke.id;
     const url = `${this.endpoint}/${id}`;
+
+    return this.http.delete<Pokemon>(url, this.httpOptions);
+  }
+
+  // shiny pokemons
+  getShinyPokemon(): Observable<Pokemon[]> {
+    return (this.http.get<Pokemon[]>(this.shinyEndpoint));
+  }
+
+  get1ShinyPokemon(id: number): Observable<Pokemon> {
+    const url = `${this.shinyEndpoint}/${id}`;
+    return this.http.get<Pokemon>(url);
+  }
+
+  addShinyPokemon(poke: Pokemon): Observable<Pokemon> {
+
+    return this.http.post<any>(this.shinyEndpoint, JSON.stringify(poke), this.httpOptions);
+  }
+
+  updateShinyPokemon(poke: Pokemon): Observable<any> {
+    return this.http.put(this.shinyEndpoint, JSON.stringify(poke), this.httpOptions);
+
+  }
+
+  deleteShinyPokemon(poke: Pokemon | number): Observable<Pokemon> {
+    const id = typeof poke === 'number' ? poke : poke.id;
+    const url = `${this.shinyEndpoint}/${id}`;
 
     return this.http.delete<Pokemon>(url, this.httpOptions);
   }

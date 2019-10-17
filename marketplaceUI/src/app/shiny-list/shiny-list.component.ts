@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiConsumerService } from '../api-consumer.service';
+import { Pokemon } from '../Pokemon';
 
 @Component({
   selector: 'app-shiny-list',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ShinyListComponent implements OnInit {
 
-  constructor() { }
+  pokemon: Pokemon[];
+
+  constructor(private service: ApiConsumerService) { }
+
+  getShinyPokemon(): void {
+    this.service.getShinyPokemon()
+    .subscribe(poke => {this.pokemon = poke; this.pokemon.sort((a, b) => a.nationalNum - b.nationalNum); });
+  }
 
   ngOnInit() {
+    this.getShinyPokemon();
+  }
+
+  filter() {
+
   }
 
 }
