@@ -9,9 +9,8 @@ import { Pokemon } from './Pokemon';
 })
 export class ApiConsumerService {
 
-  @Input() IsShiny: boolean;
-
   private endpoint = 'http://localhost:8080/api/pokemon';
+  private shinyEndpoint = 'http://localhost:8080/api/shiny';
 
 
   httpOptions = {
@@ -20,15 +19,7 @@ export class ApiConsumerService {
     })
   };
 
-  constructor(private http: HttpClient) {
-
-    if (this.IsShiny) {
-      this.endpoint = 'http://localhost:8080/api/shiny';
-    }
-
-  }
-
-
+  constructor(private http: HttpClient) {}
 
   getPokemon(): Observable<Pokemon[]> {
 
@@ -55,6 +46,11 @@ export class ApiConsumerService {
     const url = `${this.endpoint}/${id}`;
 
     return this.http.delete<Pokemon>(url, this.httpOptions);
+  }
+
+  // shiny pokemons
+  getShinyPokemon(): Observable<Pokemon[]> {
+    return (this.http.get<Pokemon[]>(this.shinyEndpoint));
   }
 
 }

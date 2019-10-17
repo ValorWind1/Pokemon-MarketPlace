@@ -1,1 +1,35 @@
-<p>shiny-list works!</p>
+<div class="active-pink-3 active-pink-4 mb-4">
+    <input class="form-control" type="text" placeholder="Enter Pokemon Name..." aria-label="Search">
+    <button (onclick)="filter()"class="btn btn-success" type="button">Search</button>
+  </div>
+
+<table class="table table-bordered">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Image</th>
+      <th scope="col">Name</th>
+      <th scope="col">Type</th>
+      <th scope="col">Stats</th>
+      <th scope="col">Add to Cart</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let poke of pokemon">
+
+      <td>{{poke.nationalNum}}</td>
+      <td><img src = {{poke.sprite.animated}}></td>
+      <td>{{poke.name}}</td>
+      <td>{{poke.type}}</td>
+      <td><div>
+       <p>Total: {{poke.total}}<br>
+        Health: {{poke.hp}}<br>
+        Attack: {{poke.attack}}<br>
+        Defense: {{poke.defense}}<br>
+        Speed: {{poke.speed}}<br>
+        </p>
+      </div></td>
+      <td><button type="button" class="btn btn-success">Add</button></td>
+    </tr>
+  </tbody>
+</table>
