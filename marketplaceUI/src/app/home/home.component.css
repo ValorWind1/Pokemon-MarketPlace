@@ -4,5 +4,41 @@
   background-position:50% 50%;
 }
 
+.quote {
+  margin-top: 5%;
+  float: left;
+  display: flex;
+  font-family: 'Courier New', Courier, monospace;
+  color: aliceblue;
+  width:16.3em;
+  white-space:nowrap;
+  overflow:hidden;
+  border-right: .1em solid black;
+
+  animation: typing 14s steps(40, end), /* # of steps = # of characters */
+                      blink-caret 1s step-end infinite;
+  -moz-animation: typing 14s steps(40, end), /* # of steps = # of characters */
+                      blink-caret 1s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width:16.3em }
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width:16.3em }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white }
+}
 
 
