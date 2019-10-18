@@ -1,9 +1,10 @@
-<p>poke-list works!</p>
-<button (click)="log()">something</button>
+<div class="active-pink-3 active-pink-4 mb-4 container-fluid">
+    <input class="form-control" type="text" placeholder="Enter Pokemon Name..." aria-label="Search">
+    <button class="btn btn-success" type="button">Search</button>
+  </div>
 
 
-
-<div style="text-align: center;">
+<div class="container-fluid text-center">
 <table class="table table-bordered">
   <thead class="thead-dark">
     <tr>
@@ -21,8 +22,10 @@
       <td>{{poke.nationalNum}}</td>
       <td><img src = {{poke.sprite.animated}}></td>
       <td>{{poke.name}}</td>
-      <td *ngIf="poke.type[1]">{{poke.type[0]}}/{{poke.type[1]}}</td>
-      <td *ngIf="!poke.type[1]">{{poke.type[0]}}</td>
+      <td *ngIf="poke.type[1]"><img [src] = "concat(poke.type[0])">
+        /
+        <img [src] = "concat(poke.type[1])"></td>
+      <td *ngIf="!poke.type[1]"><img [src] = "concat(poke.type[0])"></td>
       <td><div>
        <p>Total: {{poke.total}}<br>
         Health: {{poke.hp}}<br>
@@ -31,7 +34,8 @@
         Speed: {{poke.speed}}<br>
         </p>
       </div></td>
-      <td><button type="button" class="btn btn-success">Add</button></td>
+      <td><button type="button" class="btn btn-success">Add</button>
+        <p>${{poke.price}}</p></td>
 
     </tr>
 

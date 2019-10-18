@@ -1,16 +1,15 @@
-import { Component, OnInit, OnChanges } from '@angular/core';
-import { ApiConsumerService } from '../api-consumer.service';
+import { Component, OnInit } from '@angular/core';
 import { Pokemon } from '../Pokemon';
+import { PokeListComponent } from '../poke-list/poke-list.component';
 
 @Component({
   selector: 'app-shiny-list',
   templateUrl: './shiny-list.component.html',
   styleUrls: ['./shiny-list.component.css']
 })
-export class ShinyListComponent implements OnInit {
+export class ShinyListComponent extends PokeListComponent implements OnInit {
 
   pokemon: Pokemon[];
-  constructor(private service: ApiConsumerService) { }
 
   getShinyPokemon(): void {
     this.service.getShinyPokemon()
@@ -23,8 +22,12 @@ export class ShinyListComponent implements OnInit {
   }
 
   setPrice() {
-    for ( let i of this.pokemon) {
-    i.price = i.total * 100;
+    for ( const i of this.pokemon) {
+      if (i.type[0] === 'Dragon' || i.type[1] === 'Dragon') {
+        i.price = i.total * 150;
+      } else {
+        i.price = i.total * 100;
+      }
     }
 
   }
