@@ -1,1 +1,23 @@
-<p>cart works!</p>
+
+<div style="text-align: center" class="container-fluid text-center">
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr class="text-center">
+        <th scope="col">Price</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Remove </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let poke of pokemon" class="text-center">
+
+        <td>{{poke.price | currency}}</td>
+        <td><img src = {{poke.sprite.animated}}></td>
+        <td>{{poke.name}}</td>
+        <td ><button type="button" class="btn btn-warning">Delete</button></td>
+
+      </tr>
+    </tbody>
+  </table>
+  </div>

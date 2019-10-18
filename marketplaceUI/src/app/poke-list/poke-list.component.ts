@@ -46,7 +46,7 @@ export class PokeListComponent implements OnInit {
   }
 
   setPrice() {
-    for ( let i of this.pokemon) {
+    for (const i of this.pokemon) {
 
 
       if (i.name === 'Arceus') {
