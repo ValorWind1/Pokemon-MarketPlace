@@ -18,6 +18,7 @@ export class PokeListComponent implements OnInit {
 
   beginning = 0;
   end = 650;
+  name = '';
 
   constructor(protected service: ApiConsumerService) { }
 
@@ -25,13 +26,16 @@ export class PokeListComponent implements OnInit {
 
     this.service.getPokemon()
     .subscribe(poke => {this.pokemon = poke; this.pokemon.sort((a, b) => a.nationalNum - b.nationalNum); this.setPrice(); });
+  }
 
-
+  getInput(n: string) {
+   n = n[0].toUpperCase() + n.substr(1).toLowerCase();
+   this.name = n;
   }
 
   isLegendary(dex: number){
 
-    for (let i = 0; i <= this.lengendaries.length; i++){
+    for (let i = 0; i <= this.lengendaries.length; i++) {
       if (dex == this.lengendaries[i]) {
               return true;
       }
@@ -47,17 +51,11 @@ export class PokeListComponent implements OnInit {
 
       if (i.name === 'Arceus') {
         i.price = i.total * 3000;
-      }
-
-      else if(this.isLegendary(i.nationalNum)) {
+      } else if(this.isLegendary(i.nationalNum)) {
         i.price = i.total * 70;
-      }
-
-      else if (i.type[0] === 'Dragon' || i.type[1] === 'Dragon') {
+      } else if (i.type[0] === 'Dragon' || i.type[1] === 'Dragon') {
         i.price = i.total * 50;
-      }
-
-      else {
+      } else {
         i.price = i.total * 30;
       }
 
@@ -74,7 +72,6 @@ export class PokeListComponent implements OnInit {
   pick(b: number, e: number) {
     this.beginning = b;
     this.end = e;
-    console.log(this.beginning)
   }
 
   ngOnInit() {

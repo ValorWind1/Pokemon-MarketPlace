@@ -1,22 +1,20 @@
-<div class="active-pink-3 active-pink-4 mb-4 container-fluid">
-    <input class="form-control" type="text" placeholder="Enter Pokemon Name..." aria-label="Search">
-    <button class="btn btn-success" type="button" >Search</button>
-  </div>
 
-<div class="container-fluid">
-<button class="btn btn-success" type="button" (click)="pick(0, 999)">All</button>
-<button class="btn btn-success" type="button" (click)="pick(0, 152)">Gen 1</button>
-<button class="btn btn-success" type="button" (click)="pick(151, 252)">Gen 2</button>
-<button class="btn btn-success" type="button" (click)="pick(251, 387)">Gen 3</button>
-<button class="btn btn-success" type="button" (click)="pick(386, 494)">Gen 4</button>
-<button class="btn btn-success" type="button" (click)="pick(493, 650)">Gen 5</button>
-</div>
+  <div class="container-fluid">
+      <button class="btn btn-success btn-space" type="button" (click)="pick(0, 999); name=''">All</button>
+      <button class="btn btn-success btn-space" type="button" (click)="pick(0, 152); name=''">Gen 1</button>
+      <button class="btn btn-success btn-space" type="button" (click)="pick(151, 252); name=''">Gen 2</button>
+      <button class="btn btn-success btn-space" type="button" (click)="pick(251, 387); name=''">Gen 3</button>
+      <button class="btn btn-success btn-space" type="button" (click)="pick(386, 494); name=''">Gen 4</button>
+      <button class="btn btn-success btn-space" type="button" (click)="pick(493, 650); name=''">Gen 5</button>
 
+      <input [(ngModel)]="name"class="input" type="text" value="1" placeholder="Search by Name" aria-label="Search">
+      <button (click)="getInput(name); pick(-1,-1)" class="btn btn-success" type="button">Search</button>
+      </div>
 
-<div class="container-fluid text-center">
+<div style="text-align: center" class="container-fluid text-center">
 <table class="table table-bordered">
   <thead class="thead-dark">
-    <tr>
+    <tr class="text-center">
       <th scope="col">#</th>
       <th scope="col">Image</th>
       <th scope="col">Name</th>
@@ -26,18 +24,18 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor="let poke of pokemon">
+    <tr *ngFor="let poke of pokemon" class="text-center">
 
-      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end">{{poke.nationalNum}}</td>
-      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end"><img src = {{poke.sprite.animated}}></td>
-      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end">{{poke.name}}</td>
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name">{{poke.nationalNum}}</td>
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name"><img src = {{poke.sprite.animated}}></td>
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name">{{poke.name}}</td>
 
-      <td *ngIf="poke.type[1] && poke.nationalNum > beginning && poke.nationalNum < end"><img [src] = "concat(poke.type[0])">
+      <td *ngIf="poke.type[1] && poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name  && poke.type[1]"><img [src] = "concat(poke.type[0])">
         /
         <img [src] = "concat(poke.type[1])"></td>
-      <td *ngIf="!poke.type[1] && poke.nationalNum > beginning && poke.nationalNum < end"><img [src] = "concat(poke.type[0])"></td>
+      <td *ngIf="!poke.type[1] && poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name && !poke.type[1]"><img [src] = "concat(poke.type[0])"></td>
 
-      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end"><div>
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name"><div>
        <p>Total: {{poke.total}}<br>
         Health: {{poke.hp}}<br>
         Attack: {{poke.attack}}<br>
@@ -45,11 +43,9 @@
         Speed: {{poke.speed}}<br>
         </p>
       </div></td>
-      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end"><button type="button" class="btn btn-success">Add</button>
-        <p>{{poke.price | currency}}</p></td>
-
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name"><button type="button" class="btn btn-success">Add </button>
+        <p>${{poke.price | currency}}</p></td>
     </tr>
-
   </tbody>
 </table>
 </div>

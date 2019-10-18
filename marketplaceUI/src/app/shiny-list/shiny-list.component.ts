@@ -10,7 +10,6 @@ import { PokeListComponent } from '../poke-list/poke-list.component';
 export class ShinyListComponent extends PokeListComponent implements OnInit {
 
   pokemon: Pokemon[];
-  name = '';
 
   getShinyPokemon(): void {
     this.service.getShinyPokemon()
