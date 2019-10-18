@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiConsumerService } from '../api-consumer.service';
-import { HttpClient } from "@angular/common/http";
+
 import { Pokemon } from '../Pokemon';
 
 @Component({
@@ -11,6 +11,8 @@ import { Pokemon } from '../Pokemon';
 export class PokeListComponent implements OnInit {
 
   pokemon: Pokemon[];
+  beginning = 0;
+  end = 650;
 
   constructor(protected service: ApiConsumerService) { }
 
@@ -37,6 +39,12 @@ export class PokeListComponent implements OnInit {
 
     s = '../../assets/' + s + '.png';
     return s;
+  }
+
+  pick(b: number, e: number) {
+    this.beginning = b;
+    this.end = e;
+    console.log(this.beginning)
   }
 
   ngOnInit() {
