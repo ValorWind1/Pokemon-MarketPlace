@@ -7,7 +7,7 @@ import com.collabera.model.Sprite;
 public class PokemonDTO {
 	
 	private BigInteger id;
-	private int nationalNum;
+	private String nationalNum;
 	private String name;
 	private String[] type;
 	private Sprite sprite;
@@ -21,7 +21,7 @@ public class PokemonDTO {
 		
 	}
 	
-	public PokemonDTO(BigInteger id, int nationalNum, String name, String[] type, Sprite sprite, 
+	public PokemonDTO(BigInteger id, String nationalNum, String name, String[] type, Sprite sprite, 
 			Integer total, Integer hp, Integer attack, Integer defense, Integer speed) {
 		super();
 		this.id = id;
@@ -44,11 +44,11 @@ public class PokemonDTO {
 		this.id = id;
 	}
 
-	public int getNationalNum() {
+	public String getNationalNum() {
 		return nationalNum;
 	}
 
-	public void setNationalNum(int nationalNum) {
+	public void setNationalNum(String nationalNum) {
 		this.nationalNum = nationalNum;
 	}
 
