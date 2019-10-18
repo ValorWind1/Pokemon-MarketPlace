@@ -21,6 +21,7 @@ export class ApiConsumerService {
 
   constructor(private http: HttpClient) {}
 
+  //Pokemon
   getPokemon(): Observable<Pokemon[]> {
 
       return (this.http.get<Pokemon[]>(this.endpoint));
@@ -48,7 +49,7 @@ export class ApiConsumerService {
     return this.http.delete<Pokemon>(url, this.httpOptions);
   }
 
-  // shiny pokemons
+  // Shiny Pokemons
   getShinyPokemon(): Observable<Pokemon[]> {
     return (this.http.get<Pokemon[]>(this.shinyEndpoint));
   }
@@ -74,7 +75,7 @@ export class ApiConsumerService {
 
     return this.http.delete<Pokemon>(url, this.httpOptions);
   }
-  
+
 
 }
 
