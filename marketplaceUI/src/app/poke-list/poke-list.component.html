@@ -46,7 +46,7 @@
         </p>
       </div></td>
       <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end"><button type="button" class="btn btn-success">Add</button>
-        <p>${{poke.price}}</p></td>
+        <p>{{poke.price | currency}}</p></td>
 
     </tr>
 

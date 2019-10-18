@@ -11,6 +11,11 @@ import { Pokemon } from '../Pokemon';
 export class PokeListComponent implements OnInit {
 
   pokemon: Pokemon[];
+  lengendaries = [144, 145, 146, 150, 151, 243, 244, 245, 249,
+    250, 251, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386,
+    480, 481, 482, 483, 484, 485, 486, 487, 488, 490, 491, 492,
+    494, 638, 639, 640, 641, 642, 643, 644, 649];
+
   beginning = 0;
   end = 650;
 
@@ -24,13 +29,38 @@ export class PokeListComponent implements OnInit {
 
   }
 
+  isLegendary(dex: number){
+
+    for (let i = 0; i <= this.lengendaries.length; i++){
+      if (dex == this.lengendaries[i]) {
+              return true;
+      }
+
+    }
+
+    return false;
+  }
+
   setPrice() {
     for ( let i of this.pokemon) {
-      if (i.type[0] === 'Dragon' || i.type[1] === 'Dragon') {
+
+
+      if (i.name === 'Arceus') {
+        i.price = i.total * 3000;
+      }
+
+      else if(this.isLegendary(i.nationalNum)) {
+        i.price = i.total * 70;
+      }
+
+      else if (i.type[0] === 'Dragon' || i.type[1] === 'Dragon') {
         i.price = i.total * 50;
-      } else {
+      }
+
+      else {
         i.price = i.total * 30;
       }
+
     }
 
   }
