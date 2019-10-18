@@ -14,6 +14,7 @@ import { ShinyListComponent } from './shiny-list/shiny-list.component';
 import { PokeItemsComponent } from './poke-items/poke-items.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
@@ -28,12 +29,14 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
     NavbarComponent,
     PokeItemsComponent,
     HomeComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    [CommonModule]
   ],
   providers: [],
   bootstrap: [AppComponent]

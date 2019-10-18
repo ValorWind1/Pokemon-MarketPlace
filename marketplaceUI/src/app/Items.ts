@@ -5,5 +5,6 @@ export class Items {
   price : number ;
   description : string ;
   image : string ;
+  realId : number ;
 
 }
