@@ -31,13 +31,9 @@ export class ShinyListComponent extends PokeListComponent implements OnInit {
 
       if (i.name === 'Arceus') {
         i.price = i.total * 30000;
-      }
-
-      else if(this.isLegendary(i.nationalNum)) {
+      } else if (this.isLegendary(i.nationalNum)) {
         i.price = i.total * 700;
-      }
-
-      else if (i.type[0] === 'Dragon' || i.type[1] === 'Dragon') {
+      } else if (i.type[0] === 'Dragon' || i.type[1] === 'Dragon') {
         i.price = i.total * 150;
       } else {
         i.price = i.total * 100;
