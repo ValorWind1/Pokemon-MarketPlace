@@ -7,7 +7,7 @@
       <button class="btn btn-success btn-space" type="button" (click)="pick(386, 494); name=''">Gen 4</button>
       <button class="btn btn-success btn-space" type="button" (click)="pick(493, 650); name=''">Gen 5</button>
 
-      <input [(ngModel)]="name"class="form-control" type="text" placeholder="Search By Name" aria-label="Search">
+      <input [(ngModel)]="name"class="input" type="text" value="1" placeholder="Search by Name" aria-label="Search">
       <button (click)="getInput(name); pick(-1,-1)" class="btn btn-success" type="button">Search</button>
       </div>
 
@@ -44,7 +44,7 @@
         </p>
       </div></td>
       <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name"><button type="button" class="btn btn-success">Add </button>
-        <p>${{poke.price}}</p></td>
+        <p>${{poke.price | currency}}</p></td>
     </tr>
   </tbody>
 </table>

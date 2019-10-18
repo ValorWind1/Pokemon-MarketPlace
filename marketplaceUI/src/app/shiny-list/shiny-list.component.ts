@@ -11,7 +11,6 @@ export class ShinyListComponent extends PokeListComponent implements OnInit {
 
   pokemon: Pokemon[];
 
-
   getShinyPokemon(): void {
     this.service.getShinyPokemon()
     .subscribe(poke => {this.pokemon = poke; this.pokemon.sort((a, b) => a.nationalNum - b.nationalNum); this.setPrice();
