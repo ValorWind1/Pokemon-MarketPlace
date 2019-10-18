@@ -15,6 +15,7 @@ import { PokeItemsComponent } from './poke-items/poke-items.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -30,12 +31,13 @@ import { CommonModule } from '@angular/common';
     PokeItemsComponent,
     HomeComponent,
     PageNotFoundComponent,
-    
+
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    FormsModule,
     [CommonModule]
   ],
   providers: [],

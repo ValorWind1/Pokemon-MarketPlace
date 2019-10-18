@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Pokemon } from '../Pokemon';
 import { PokeListComponent } from '../poke-list/poke-list.component';
 
@@ -10,6 +10,7 @@ import { PokeListComponent } from '../poke-list/poke-list.component';
 export class ShinyListComponent extends PokeListComponent implements OnInit {
 
   pokemon: Pokemon[];
+  name = '';
 
   getShinyPokemon(): void {
     this.service.getShinyPokemon()
@@ -21,6 +22,10 @@ export class ShinyListComponent extends PokeListComponent implements OnInit {
     this.getShinyPokemon();
   }
 
+  getInput(n: string) {
+   n = n[0].toUpperCase() + n.substr(1).toLowerCase();
+   this.name = n;
+  }
   setPrice() {
     for ( const i of this.pokemon) {
       if (i.type[0] === 'Dragon' || i.type[1] === 'Dragon') {
