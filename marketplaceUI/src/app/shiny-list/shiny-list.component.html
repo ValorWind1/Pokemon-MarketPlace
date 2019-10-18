@@ -21,8 +21,10 @@
       <td>{{poke.nationalNum}}</td>
       <td><img src = {{poke.sprite.animated}}></td>
       <td>{{poke.name}}</td>
-      <td *ngIf="poke.type[1]"><img src ="'src\assets\' + {{poke.type[0]} + '.png'">/"{{poke.type[1]}}"</td>
-      <td *ngIf="!poke.type[1]">{{poke.type[0]}}</td>
+      <td *ngIf="poke.type[1]"><img [src] = "concat(poke.type[0])">
+        /
+        <img [src] = "concat(poke.type[1])"></td>
+      <td *ngIf="!poke.type[1]"><img [src] = "concat(poke.type[0])"></td>
       <td><div>
        <p>Total: {{poke.total}}<br>
         Health: {{poke.hp}}<br>

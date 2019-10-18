@@ -12,19 +12,31 @@ export class PokeListComponent implements OnInit {
 
   pokemon: Pokemon[];
 
-  constructor(private service: ApiConsumerService) { }
+  constructor(protected service: ApiConsumerService) { }
 
   getPokemon(): void {
 
     this.service.getPokemon()
-    .subscribe(poke => {this.pokemon = poke; this.pokemon.sort((a, b) => a.nationalNum - b.nationalNum); });
+    .subscribe(poke => {this.pokemon = poke; this.pokemon.sort((a, b) => a.nationalNum - b.nationalNum); this.setPrice(); });
 
 
   }
 
-  log() {
+  setPrice() {
+    for ( let i of this.pokemon) {
+      if (i.type[0] === 'Dragon' || i.type[1] === 'Dragon') {
+        i.price = i.total * 50;
+      } else {
+        i.price = i.total * 30;
+      }
+    }
 
-    this.pokemon.sort((a, b) => a.nationalNum - b.nationalNum);
+  }
+
+  concat(s: string){
+
+    s = '../../assets/' + s + '.png';
+    return s;
   }
 
   ngOnInit() {
