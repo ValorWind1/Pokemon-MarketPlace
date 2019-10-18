@@ -13,5 +13,27 @@
           </div>
       </div>
   </div>
+  <table class="table table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Image</th>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Description</th>
+        <th scope="col">Add to Cart</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; let ndx = index">
+        <div>{{ndx+1}}</div>
 
+        <td><img src = {{item.image}}></td>
+        <td>{{item.name}}</td>
+        <td>{{item.price}}</td>
+        <td>{{item.description}}</td>
+        <td><button type="button" class="btn btn-success">Add</button></td>
+      </tr>
+    </tbody>
+  </table>
 </div>
