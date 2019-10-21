@@ -1,18 +1,10 @@
-<div>
-  <h2>Pokemon items  </h2>
+<div class="container-fluid">
+  <input [(ngModel)]="name"class="input" type="text" value="1" placeholder="Search by Name" aria-label="Search">
+  <button (click)="getInput(name)" class="btn btn-success" type="button">Search</button>
+  <button (click)="back()" class="btn btn-success btn-space" type="button">Back</button>
+</div>
 
-  <div class="row">
-      <div class="col-xs-6 col-md-4">
-          <div class="input-group">
-              <input type="text" class="form-control" placeholder="enter  items" id="txtSearch" />
-              <div class="input-group-btn">
-                  <button class="btn btn-primary" type="button">
-      <span class="glyphicon glyphicon-ok"></span>
-      </button>
-              </div>
-          </div>
-      </div>
-  </div>
+
   <div class="container-fluid text-center">
   <table class="table table-bordered">
     <thead class="thead-dark">
@@ -27,15 +19,15 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of items; let ndx = index">
-        <div>{{ndx+1}}</div>
+        <div *ngIf="!active || item.name === name">{{ndx+1}}</div>
 
-        <td><img src = {{item.image}}></td>
-        <td>{{item.name}}</td>
-        <td>{{item.price | currency}}</td>
-        <td>{{item.description}}</td>
-        <td><button type="button" class="btn btn-success">Add</button></td>
+        <td *ngIf="!active || item.name === name"><img src = {{item.image}}></td>
+        <td *ngIf="!active || item.name === name">{{item.name}}</td>
+        <td *ngIf="!active || item.name === name">{{item.price | currency}}</td>
+        <td *ngIf="!active || item.name === name">{{item.description}}</td>
+        <td *ngIf="!active || item.name === name"><button type="button" class="btn btn-success">Add</button></td>
       </tr>
     </tbody>
   </table>
 </div>
-</div>
+

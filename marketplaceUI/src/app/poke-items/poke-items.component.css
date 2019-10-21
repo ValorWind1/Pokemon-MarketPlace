@@ -1,0 +1,13 @@
+.active-pink-4 input[type=text]:focus:not([readonly]) {
+  border: 1px solid #f48fb1;
+  box-shadow: 0 0 0 1px #f48fb1;
+  }
+
+  .btn-space {
+    margin: 1%;
+  }
+
+.input {
+  margin: .1%;
+
+}
