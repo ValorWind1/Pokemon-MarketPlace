@@ -52,7 +52,7 @@
       </td>
 
       <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end && poke.name != 'Pikachu'|| poke.name === name && poke.name !== 'Pikachu'">
-        <button (click) = "addToCart(poke)" type ="button" class = "btn btn-success">Add</button>
+        <button (click) = "addToCart(poke)" type ="button" class = "btn btn-success" data-toggle="modal" data-target=".bd-example-modal-sm">Add</button>
         <p>{{poke.price | currency}}</p>
       </td>
 
@@ -61,4 +61,12 @@
     </tr>
   </tbody>
 </table>
+</div>
+
+<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-sm">fhfghfh
+    <div class="modal-content">
+      Added To Cart :D
+    </div>
+  </div>
 </div>

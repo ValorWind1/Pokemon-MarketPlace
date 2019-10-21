@@ -26,9 +26,11 @@ export class CartComponent implements OnInit {
     this.service.remove(item);
     this.service.removeItem(item);
     this.getCart();
+    this.getTotal();
    }
 
   getTotal() {
+    this.total = 0;
     for (const poke of this.cart) {
       this.total += poke.price;
     }
