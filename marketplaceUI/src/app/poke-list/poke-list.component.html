@@ -46,16 +46,18 @@
       </div>
       </td>
 
-      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end && name == 'Pikachu' || name == 'Pikachu' && poke.name == 'Pikachu'">
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end && poke.name == 'Pikachu' && name == '' || name == 'Pikachu' && poke.name == 'Pikachu'">
 
-      <p>Unknown, has beaten legendaries, but lost to a lv.5 Snivy</p>
+      <p>Unknown,<br> Has beaten legendaries,<br> but lost to a lv.5 Snivy</p>
       </td>
 
       <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end && poke.name != 'Pikachu'|| poke.name === name && poke.name !== 'Pikachu'">
-        <button (click) = "addToCart(poke)" type ="button" class = "btn btn-success">Add </button>
-        <p>{{poke.price | currency}}</p></td>
-        <td *ngIf="poke.nationalNum == 025 && name == 'Pikachu' || name == 'Pikachu' && poke.name == 'Pikachu' ">
-        Coming soon</td>
+        <button (click) = "addToCart(poke)" type ="button" class = "btn btn-success">Add</button>
+        <p>{{poke.price | currency}}</p>
+      </td>
+
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end && poke.name == 'Pikachu' && name == '' || name == 'Pikachu' && poke.name == 'Pikachu'">
+        Coming Soon</td>
     </tr>
   </tbody>
 </table>
