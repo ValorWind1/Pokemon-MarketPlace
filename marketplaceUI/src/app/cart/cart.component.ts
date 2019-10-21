@@ -11,6 +11,7 @@ export class CartComponent implements OnInit {
 
   cart: any[];
   items: Items[];
+  total = 0;
 
   constructor(private service: CartService) {}
 
@@ -27,8 +28,19 @@ export class CartComponent implements OnInit {
     this.getCart();
    }
 
+  getTotal() {
+    for (const poke of this.cart) {
+      this.total += poke.price;
+    }
+
+    for (const item of this.items) {
+      this.total += item.price;
+    }
+  }
+
    ngOnInit() {
     this.getCart();
+    this.getTotal();
   }
 
 }

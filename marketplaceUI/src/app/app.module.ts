@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { FormsModule } from '@angular/forms';
     PokeItemsComponent,
     HomeComponent,
     PageNotFoundComponent,
+    CheckoutComponent,
 
   ],
   imports: [
