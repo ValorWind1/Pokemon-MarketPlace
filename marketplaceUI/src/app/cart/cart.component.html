@@ -4,7 +4,6 @@
   <button>Checkout</button>
 </div>
 
-
 <div style="text-align: center" class="container-fluid text-center">
   <table class="table table-bordered">
     <thead class="thead-dark">
@@ -24,16 +23,14 @@
         <td ><button (click) = "remove(item)" type = "button" class="btn btn-warning">Delete</button></td>
 
       </tr>
-    </tbody>
-    <tbody>
-        <tr *ngFor="let item of items" class="text-center">
+      <tr *ngFor="let item of items" class="text-center">
 
           <td>{{item.price | currency}}</td>
           <td><img src = {{item.image}}></td>
           <td>{{item.name}}</td>
           <td ><button (click) = "remove(item)" type = "button" class="btn btn-warning">Delete</button></td>
 
-        </tr>
+      </tr>
       </tbody>
   </table>
   </div>
