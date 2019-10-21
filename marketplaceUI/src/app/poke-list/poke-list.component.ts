@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiConsumerService } from '../api-consumer.service';
 
 import { Pokemon } from '../Pokemon';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-poke-list',
@@ -20,7 +21,11 @@ export class PokeListComponent implements OnInit {
   end = 650;
   name = '';
 
-  constructor(protected service: ApiConsumerService) { }
+  constructor(protected service: ApiConsumerService, protected cartService: CartService) { }
+
+  addToCart(poke: Pokemon) {
+    this.cartService.add(poke);
+  }
 
   getPokemon(): void {
 
@@ -63,7 +68,7 @@ export class PokeListComponent implements OnInit {
 
   }
 
-  concat(s: string){
+  concat(s: string) {
 
     s = '../../assets/' + s + '.png';
     return s;
@@ -72,12 +77,6 @@ export class PokeListComponent implements OnInit {
   pick(b: number, e: number) {
     this.beginning = b;
     this.end = e;
-  }
-
-  isPikachu(poke: string){
-    if (poke == 'Pikachu'){
-     pok
-    }
   }
 
   ngOnInit() {
