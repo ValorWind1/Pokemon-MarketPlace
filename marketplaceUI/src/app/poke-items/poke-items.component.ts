@@ -4,6 +4,7 @@ import { Items } from '../Items';
 import {ItemServiceService} from './item-service.service';
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-poke-items',
@@ -14,18 +15,12 @@ export class PokeItemsComponent implements OnInit {
   name;
   items: Items[];
   active = false;
-  constructor(private service: ItemServiceService) { }
+
+  constructor(private service: ItemServiceService, protected cartService: CartService) { }
 
   getItem(): void {
-
     this.service.getItem()
     .subscribe(poke => {this.items = poke; });
-  }
-
-  getRealId(){
-   for (let i = 0; i >= ItemServiceService.length; i++) {
-
-   }
   }
 
   getInput(n: string) {
@@ -36,12 +31,16 @@ export class PokeItemsComponent implements OnInit {
     }
   }
 
+  addToCart(item: Items) {
+    this.cartService.addItem(item);
+    console.log(item);
+  }
+
   back() {
   this.active = false;
   }
   ngOnInit() {
     this.getItem();
-    this.getRealId();
   }
 
 

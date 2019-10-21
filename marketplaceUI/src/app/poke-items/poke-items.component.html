@@ -19,13 +19,14 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of items; let ndx = index">
-        <div *ngIf="!active || item.name === name">{{ndx+1}}</div>
+        <td *ngIf="!active || item.name === name">{{ndx+1}}</td>
 
         <td *ngIf="!active || item.name === name"><img src = {{item.image}}></td>
         <td *ngIf="!active || item.name === name">{{item.name}}</td>
         <td *ngIf="!active || item.name === name">{{item.price | currency}}</td>
         <td *ngIf="!active || item.name === name">{{item.description}}</td>
-        <td *ngIf="!active || item.name === name"><button type="button" class="btn btn-success">Add</button></td>
+        <td *ngIf="!active || item.name === name">
+          <button (click)="addToCart(item)" type="button" class="btn btn-success">Add</button></td>
       </tr>
     </tbody>
   </table>

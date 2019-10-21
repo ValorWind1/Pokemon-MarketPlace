@@ -41,7 +41,8 @@
         Speed: {{poke.speed}}<br>
         </p>
       </div></td>
-      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name"><button type="button" class="btn btn-success">Add </button>
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name">
+        <button (click)="addToCart(poke)" type="button" class="btn btn-success">Add </button>
         <p>{{poke.price | currency}}</p></td>
     </tr>
   </tbody>
