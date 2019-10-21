@@ -11,8 +11,9 @@ import { BrowserModule } from '@angular/platform-browser';
   styleUrls: ['./poke-items.component.css']
 })
 export class PokeItemsComponent implements OnInit {
-
+  name;
   items: Items[];
+  active = false;
   constructor(private service: ItemServiceService) { }
 
   getItem(): void {
@@ -25,7 +26,18 @@ export class PokeItemsComponent implements OnInit {
    for (let i = 0; i >= ItemServiceService.length; i++) {
 
    }
+  }
 
+  getInput(n: string) {
+    this.name = n;
+    this.active = true;
+    if (n.length === 0) {
+      this.active = false;
+    }
+  }
+
+  back() {
+  this.active = false;
   }
   ngOnInit() {
     this.getItem();
