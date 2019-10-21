@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -33,7 +35,7 @@ import { FormsModule } from '@angular/forms';
     PageNotFoundComponent,
 
   ],
-  imports: [
+   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
