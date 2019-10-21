@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Pokemon } from '../Pokemon';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -8,13 +8,22 @@ import { Pokemon } from '../Pokemon';
 })
 export class CartComponent implements OnInit {
 
-  items: Pokemon;
+  cart: any[];
 
-  pokemon: Pokemon[];
+  constructor(private service: CartService) {}
 
-  constructor() { }
+  getCart() {
+    this.cart = this.service.Cart;
+    console.log(this.cart);
+  }
 
-  ngOnInit() {
+  remove(item: any) {
+    this.service.remove(item);
+    this.getCart();
+   }
+
+   ngOnInit() {
+    this.getCart();
   }
 
 }
