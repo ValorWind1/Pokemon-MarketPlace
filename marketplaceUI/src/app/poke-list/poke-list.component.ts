@@ -74,6 +74,12 @@ export class PokeListComponent implements OnInit {
     this.end = e;
   }
 
+  isPikachu(poke: string){
+    if (poke == 'Pikachu'){
+     pok
+    }
+  }
+
   ngOnInit() {
     this.getPokemon();
   }

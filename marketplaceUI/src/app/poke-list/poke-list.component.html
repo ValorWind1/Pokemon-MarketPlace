@@ -7,8 +7,8 @@
       <button class="btn btn-success btn-space" type="button" (click)="pick(386, 494); name=''">Gen 4</button>
       <button class="btn btn-success btn-space" type="button" (click)="pick(493, 650); name=''">Gen 5</button>
 
-      <input [(ngModel)]="name"class="input" type="text" value="1" placeholder="Search by Name" aria-label="Search">
-      <button (click)="getInput(name); pick(-1,-1)" class="btn btn-success" type="button">Search</button>
+      <input [(ngModel)]="name" class="input" type="text" value="1" placeholder="Search by Name" aria-label="Search">
+      <button (keyup.enter)="getInput(name)"(click)="getInput(name); pick(-1,-1)" class="btn btn-success" type="button">Search</button>
       </div>
 
 <div style="text-align: center" class="container-fluid text-center">
@@ -35,16 +35,26 @@
         <img [src] = "concat(poke.type[1])"></td>
       <td *ngIf="!poke.type[1] && poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name && !poke.type[1]"><img [src] = "concat(poke.type[0])"></td>
 
-      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name"><div>
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end && poke.name != 'Pikachu'|| poke.name === name && poke.name !== 'Pikachu'">
+        <div>
        <p>Total: {{poke.total}}<br>
         Health: {{poke.hp}}<br>
         Attack: {{poke.attack}}<br>
         Defense: {{poke.defense}}<br>
         Speed: {{poke.speed}}<br>
         </p>
-      </div></td>
-      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name"><button type="button" class="btn btn-success">Add </button>
-        <p>${{poke.price | currency}}</p></td>
+      </div>
+      </td>
+
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end && name == 'Pikachu' || name == 'Pikachu' && poke.name == 'Pikachu'">
+
+      <p>Unknown, has beaten legendaries, but lost to a lv.5 Snivy</p>
+      </td>
+
+      <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end && poke.name != 'Pikachu'|| poke.name === name && poke.name !== 'Pikachu'"><button type="button" class="btn btn-success">Add </button>
+        <p>{{poke.price | currency}}</p></td>
+        <td *ngIf="poke.nationalNum == 025 && name == 'Pikachu' || name == 'Pikachu' && poke.name == 'Pikachu' ">
+        Coming soon</td>
     </tr>
   </tbody>
 </table>
