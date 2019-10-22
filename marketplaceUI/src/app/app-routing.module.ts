@@ -7,6 +7,8 @@ import { PokeListComponent } from './poke-list/poke-list.component';
 import { CartComponent } from './cart/cart.component';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { SubmitComponent } from './submit/submit.component';
 
 
 const routes: Routes = [
@@ -17,7 +19,11 @@ const routes: Routes = [
   {path: 'item', component: PokeItemsComponent},
   {path: 'about', component: AboutComponent},
   {path: 'cart', component: CartComponent},
-  {path: '**', component: PageNotFoundComponent} // invalid urls
+  {path: 'checkout', component: CheckoutComponent},
+  {path: 'submit', component: SubmitComponent},
+  {path: '**', component: PageNotFoundComponent}   // invalid urls
+
+
 ];
 
 @NgModule({
