@@ -15,13 +15,11 @@ export class LocalService {
 
     this.storage.set(key, val);
     this.data[key] = this.storage.get(key);
-    console.log(this.data);
 
    }
 
    getFromLocal(key) {
-     console.log(this.data);
-     console.log('recieved = key :' + key);
+
      this.data[key] = this.storage.get(key);
    }
 

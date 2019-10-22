@@ -18,8 +18,6 @@ export class CartComponent implements OnInit {
   getCart() {
     this.cart = this.service.Cart;
     this.items = this.service.ItemCart;
-    console.log(this.cart);
-    console.log(this.items);
   }
 
   remove(item: any) {
