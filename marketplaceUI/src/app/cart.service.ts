@@ -13,11 +13,11 @@ export class CartService {
     this.service.getFromLocal(2);
     const data = this.service.data;
 
-    if(data[1]) {
+    if (data[1]) {
       this.Cart = data[1];
     }
 
-    if(data[2]) {
+    if (data[2]) {
       this.ItemCart = data[2];
     }
 
@@ -48,7 +48,7 @@ export class CartService {
   }
 
   remove(item: any) {
-    for( let i = 0; i < this.Cart.length; i++){
+    for ( let i = 0; i < this.Cart.length; i++) {
      if ( this.Cart[i] === item) {
        this.Cart.splice(i, 1);
       }
@@ -57,7 +57,7 @@ export class CartService {
   }
 
   removeItem(item: any) {
-    for( let i = 0; i < this.ItemCart.length; i++){
+    for ( let i = 0; i < this.ItemCart.length; i++) {
      if ( this.ItemCart[i] === item) {
        this.ItemCart.splice(i, 1);
       }
