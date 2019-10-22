@@ -21,6 +21,7 @@
     "@angular/router": "~8.2.9",
     "@ngrx/store": "^8.4.0",
     "animate.css": "^3.7.2",
+    "bootstrap-auto-dismiss-alert": "^1.0.2",
     "rxjs": "~6.4.0",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"

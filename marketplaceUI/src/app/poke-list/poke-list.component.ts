@@ -27,6 +27,10 @@ export class PokeListComponent implements OnInit {
     this.cartService.add(poke);
   }
 
+  async delay(ms: number, poke: Pokemon) {
+    await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>poke.hideAlert = false);
+}
+
   getPokemon(): void {
 
     this.service.getPokemon()

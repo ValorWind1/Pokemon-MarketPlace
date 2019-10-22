@@ -11,14 +11,22 @@ export class CartService {
 
   Cart: any[] = [];
   ItemCart: Items[] = [];
+  cartSize = 0;
 
 
   add(poke: Pokemon) {
     this.Cart.push(poke);
+    this.setCartSize();
   }
 
   addItem(item: Items) {
     this.ItemCart.push(item);
+    this.setCartSize();
+  }
+
+  setCartSize() {
+    this.cartSize = this.Cart.length + this.ItemCart.length;
+    console.log(this.cartSize);
   }
 
   remove(item: any) {
@@ -27,6 +35,7 @@ export class CartService {
        this.Cart.splice(i, 1);
       }
     }
+    this.setCartSize();
   }
 
   removeItem(item: any) {
@@ -35,5 +44,6 @@ export class CartService {
        this.ItemCart.splice(i, 1);
       }
     }
+    this.setCartSize();
   }
 }

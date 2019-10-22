@@ -6,5 +6,6 @@ export class Items {
   description : string ;
   image : string ;
   realId : number ;
+  hideAlert = false;
 
 }

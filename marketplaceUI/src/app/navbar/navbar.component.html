@@ -29,7 +29,7 @@
     </ul>
     <ul class="navbar-nav ml-auto nav-fill">
     <li class="nav-item w-50">
-      <a class="nav-link" [routerLink]="['/cart']" routerLinkActive="router-link-active">Cart</a>
+      <a class="nav-link" [routerLink]="['/cart']" routerLinkActive="router-link-active">Cart <span class="badge badge-danger">{{service.cartSize}}</span></a>
     </li>
     </ul>
   </div>
