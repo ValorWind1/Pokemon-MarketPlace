@@ -37,7 +37,6 @@ export class PokeItemsComponent implements OnInit {
 
   addToCart(item: Items) {
     this.cartService.addItem(item);
-    console.log(item);
   }
 
   back() {

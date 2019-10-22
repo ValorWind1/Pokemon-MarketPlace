@@ -1,17 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Pokemon } from './Pokemon';
 import { Items } from './Items';
+import { LocalService } from './local.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CartService {
 
-  constructor() { }
+  constructor(private service: LocalService) {
+    this.service.getFromLocal(1);
+    this.service.getFromLocal(2);
+    const data = this.service.data;
+
+    if(data[1]) {
+      this.Cart = data[1];
+    }
+
+    if(data[2]) {
+      this.ItemCart = data[2];
+    }
+
+  }
 
   Cart: any[] = [];
   ItemCart: Items[] = [];
-  cartSize = 0;
+  cartSize: number;
 
 
   add(poke: Pokemon) {
@@ -26,7 +40,11 @@ export class CartService {
 
   setCartSize() {
     this.cartSize = this.Cart.length + this.ItemCart.length;
-    console.log(this.cartSize);
+
+
+    this.service.saveInLocal(1, this.Cart);
+    this.service.saveInLocal(2, this.ItemCart);
+
   }
 
   remove(item: any) {

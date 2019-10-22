@@ -10,9 +10,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(public service: CartService) { }
 
-
-
   ngOnInit() {
+    this.service.setCartSize();
   }
 
 }
