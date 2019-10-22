@@ -23,7 +23,7 @@ export class ItemServiceService {
 
 // get
 getItem(): Observable<Items[]> {
-  console.log(this.http.get<Items[]>(this.endpoint));
+  
   return (this.http.get<Items[]>(this.endpoint));
 }
 // update(put)
