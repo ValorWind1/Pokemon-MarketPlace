@@ -8,6 +8,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { AboutComponent } from './about/about.component';
 import { CartComponent } from './cart/cart.component';
 import { HttpClientModule } from '@angular/common/http';
+import { StorageServiceModule} from 'angular-webstorage-service';
+
 
 import { ShinyListComponent } from './shiny-list/shiny-list.component';
 
@@ -42,7 +44,8 @@ import { CheckoutComponent } from './checkout/checkout.component';
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    [CommonModule]
+    [CommonModule],
+    StorageServiceModule
   ],
   providers: [],
   bootstrap: [AppComponent]
