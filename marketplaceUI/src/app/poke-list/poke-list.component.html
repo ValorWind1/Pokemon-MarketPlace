@@ -52,8 +52,9 @@
       </td>
 
       <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end && poke.name != 'Pikachu'|| poke.name === name && poke.name !== 'Pikachu'">
-        <button (click) = "addToCart(poke)" type ="button" class = "btn btn-success" data-toggle="modal" data-target=".bd-example-modal-sm">Add</button>
+        <button (click) = "addToCart(poke); poke.hideAlert = true; delay(2000, poke)" type ="button" class = "btn btn-success">Add</button>
         <p>{{poke.price | currency}}</p>
+        <h6><span class="badge badge-success" [hidden]="!poke.hideAlert">Added to Cart</span></h6>
       </td>
 
       <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end && poke.name == 'Pikachu' && name == '' || name == 'Pikachu' && poke.name == 'Pikachu'">
@@ -61,12 +62,4 @@
     </tr>
   </tbody>
 </table>
-</div>
-
-<div class="modal fade bd-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-sm">fhfghfh
-    <div class="modal-content">
-      Added To Cart :D
-    </div>
-  </div>
 </div>

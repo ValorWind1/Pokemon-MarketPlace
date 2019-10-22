@@ -42,8 +42,10 @@
         </p>
       </div></td>
       <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || poke.name === name">
-        <button (click)="addToCart(poke)" type="button" class="btn btn-success">Add </button>
-        <p>{{poke.price | currency}}</p></td>
+        <button (click) = "addToCart(poke); poke.hideAlert = true; delay(2000, poke)" type ="button" class = "btn btn-success">Add</button>
+        <p>{{poke.price | currency}}</p>
+        <h6><span class="badge badge-success" [hidden]="!poke.hideAlert">Added to Cart</span></h6>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -10,4 +10,5 @@ export class Pokemon {
   defense: number;
   speed: number;
   price: number;
+  hideAlert = false;
 }

@@ -26,7 +26,9 @@
         <td *ngIf="!active || item.name === name">{{item.price | currency}}</td>
         <td *ngIf="!active || item.name === name">{{item.description}}</td>
         <td *ngIf="!active || item.name === name">
-          <button (click)="addToCart(item)" type="button" class="btn btn-success">Add</button></td>
+          <button (click)="addToCart(item); item.hideAlert = true; delay(2000, item)" type ="button" class = "btn btn-success">Add</button>
+        <h6><span class="badge badge-success" [hidden]="!item.hideAlert">Added to Cart</span></h6>
+      </td>
       </tr>
     </tbody>
   </table>
