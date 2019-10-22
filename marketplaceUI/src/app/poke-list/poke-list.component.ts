@@ -28,7 +28,7 @@ export class PokeListComponent implements OnInit {
   }
 
   async delay(ms: number, poke: Pokemon) {
-    await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>poke.hideAlert = false);
+    await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => poke.hideAlert = false);
 }
 
   getPokemon(): void {
@@ -42,7 +42,7 @@ export class PokeListComponent implements OnInit {
    this.name = n;
   }
 
-  isLegendary(dex: number){
+  isLegendary(dex: number) {
 
     for (let i = 0; i <= this.lengendaries.length; i++) {
       if (dex == this.lengendaries[i]) {

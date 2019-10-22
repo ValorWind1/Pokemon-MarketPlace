@@ -31,8 +31,8 @@ export class PokeItemsComponent implements OnInit {
     }
   }
 
-  async delay(ms: number, poke: Items) {
-    await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => poke.hideAlert = false);
+  async delay(ms: number, item: Items) {
+    await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => item.hideAlert = false);
   }
 
   addToCart(item: Items) {
