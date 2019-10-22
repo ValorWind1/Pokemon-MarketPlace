@@ -20,7 +20,7 @@ export class PokeItemsComponent implements OnInit {
 
   getItem(): void {
     this.service.getItem()
-    .subscribe(poke => {this.items = poke; });
+    .subscribe(item => {this.items = item; });
   }
 
   getInput(n: string) {
@@ -31,9 +31,12 @@ export class PokeItemsComponent implements OnInit {
     }
   }
 
+  async delay(ms: number, item: Items) {
+    await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => item.hideAlert = false);
+  }
+
   addToCart(item: Items) {
     this.cartService.addItem(item);
-    console.log(item);
   }
 
   back() {
