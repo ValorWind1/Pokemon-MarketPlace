@@ -41,10 +41,8 @@ export class CartService {
   setCartSize() {
     this.cartSize = this.Cart.length + this.ItemCart.length;
 
-
     this.service.saveInLocal(1, this.Cart);
     this.service.saveInLocal(2, this.ItemCart);
-
   }
 
   remove(item: any) {
@@ -62,6 +60,12 @@ export class CartService {
        this.ItemCart.splice(i, 1);
       }
     }
+    this.setCartSize();
+  }
+
+  deleteAll() {
+    this.Cart.length = 0;
+    this.ItemCart.length = 0;
     this.setCartSize();
   }
 }

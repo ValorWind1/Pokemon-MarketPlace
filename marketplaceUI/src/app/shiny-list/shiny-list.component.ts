@@ -22,8 +22,10 @@ export class ShinyListComponent extends PokeListComponent implements OnInit {
   }
 
   getInput(n: string) {
-   n = n[0].toUpperCase() + n.substr(1).toLowerCase();
-   this.name = n;
+    if(n.length > 0){
+      n = n[0].toUpperCase() + n.substr(1).toLowerCase();
+      this.name = n;
+    }
   }
   setPrice() {
     for ( const i of this.pokemon) {

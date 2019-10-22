@@ -1,7 +1,8 @@
 
 <div class="container-fluid text-center">
   <h4><span class="badge badge-info">Total: {{total | currency}} </span></h4>
-  <button>Checkout</button>
+  <button class="btn btn-primary">Checkout</button>
+  <button class="btn btn-danger" (click)="deleteAll()">Remove All</button>
 </div>
 
 <div style="text-align: center" class="container-fluid text-center">

@@ -1,5 +1,5 @@
 <div class="container-fluid">
-  <input [(ngModel)]="name"class="input" type="text" value="1" placeholder="Search by Name" aria-label="Search">
+  <input [(ngModel)]="name" (keyup)="getInput(name)" class="input" type="text" value="1" placeholder="Search by Name" aria-label="Search">
   <button (click)="getInput(name)" class="btn btn-success" type="button">Search</button>
   <button (click)="back()" class="btn btn-success btn-space" type="button">Back</button>
 </div>
@@ -26,7 +26,7 @@
         <td *ngIf="!active || item.name === name">{{item.price | currency}}</td>
         <td *ngIf="!active || item.name === name">{{item.description}}</td>
         <td *ngIf="!active || item.name === name">
-          <button (click)="addToCart(item); item.hideAlert = true; delay(2000, item)" type ="button" class = "btn btn-success">Add</button>
+          <button *ngIf="!item.hideAlert" (click)="addToCart(item); item.hideAlert = true; delay(2000, item)" type ="button" class = "btn btn-success">Add</button>
         <h6><span class="badge badge-success" [hidden]="!item.hideAlert">Added to Cart</span></h6>
       </td>
       </tr>
