@@ -18,6 +18,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { CheckoutComponent } from './checkout/checkout.component';
+import { SubmitComponent } from './submit/submit.component';
 
 
 
@@ -35,6 +36,7 @@ import { CheckoutComponent } from './checkout/checkout.component';
     HomeComponent,
     PageNotFoundComponent,
     CheckoutComponent,
+    SubmitComponent,
 
   ],
    imports: [
