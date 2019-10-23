@@ -37,6 +37,11 @@ export class CartComponent implements OnInit {
       this.total += item.price;
     }
   }
+  deleteAll() {
+    this.service.deleteAll();
+    this.getCart();
+    this.getTotal();
+  }
 
    ngOnInit() {
     this.getCart();

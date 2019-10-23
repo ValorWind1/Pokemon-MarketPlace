@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CheckoutService } from './checkout.service';
 import { Items } from '../Items';
+import { CartService } from '../cart.service';
 
 
 @Component({
@@ -10,18 +10,18 @@ import { Items } from '../Items';
 })
 export class CheckoutComponent implements OnInit {
 
-  cart: any[];
-  items: Items[];
+  cart = [];
+  items = [];
   total = 0;
   // this.total
 
-  constructor(private service: CheckoutService) {}
+  constructor(private service: CartService) {}
 
   getCart() {
+
     this.cart = this.service.Cart;
     this.items = this.service.ItemCart;
     console.log(this.cart);
-    console.log(this.items);
   }
 
   remove(item: any) {
@@ -31,11 +31,12 @@ export class CheckoutComponent implements OnInit {
    }
 
   getTotal() {
-    for (const poke of this.cart) {
+    for (const poke of this.service.Cart) {
       this.total += poke.price;
     }
 
-    for (const item of this.items) {
+    for (const item of this.service.ItemCart
+      ) {
       this.total += item.price;
     }
   }

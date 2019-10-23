@@ -19,7 +19,7 @@ export class PokeListComponent implements OnInit {
 
   beginning = 0;
   end = 650;
-  name = '';
+  name;
 
   constructor(protected service: ApiConsumerService, protected cartService: CartService) { }
 
@@ -38,8 +38,10 @@ export class PokeListComponent implements OnInit {
   }
 
   getInput(n: string) {
+  if (n.length > 0) {
    n = n[0].toUpperCase() + n.substr(1).toLowerCase();
    this.name = n;
+  }
   }
 
   isLegendary(dex: number) {
