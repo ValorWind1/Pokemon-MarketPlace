@@ -90,7 +90,7 @@ export class PokeListComponent implements OnInit {
   }
 
   check(poke) {
-    if(this.name === ''){return false;}
+    if (this.name === '') {return false; }
     return poke.name.startsWith(this.name);
   }
 

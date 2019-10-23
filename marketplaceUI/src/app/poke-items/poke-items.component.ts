@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiConsumerService } from '../api-consumer.service';
 import { Items } from '../Items';
 import {ItemServiceService} from './item-service.service';
-import { CommonModule } from '@angular/common';
-import { BrowserModule } from '@angular/platform-browser';
 import { CartService } from '../cart.service';
 
 @Component({
@@ -40,9 +37,6 @@ export class PokeItemsComponent implements OnInit {
     this.cartService.addItem(item);
   }
 
-  back() {
-  this.active = false;
-  }
   ngOnInit() {
     this.getItem();
   }
