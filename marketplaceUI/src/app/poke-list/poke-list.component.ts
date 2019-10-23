@@ -18,7 +18,7 @@ export class PokeListComponent implements OnInit {
     494, 638, 639, 640, 641, 642, 643, 644, 649];
 
   beginning = 0;
-  end = 650;
+  end = 152;
   name;
 
   constructor(protected service: ApiConsumerService, protected cartService: CartService) { }
