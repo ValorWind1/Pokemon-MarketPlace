@@ -29,6 +29,7 @@ export class PokeItemsComponent implements OnInit {
     if (n.length === 0) {
       this.active = false;
     }
+
   }
 
   async delay(ms: number, item: Items) {

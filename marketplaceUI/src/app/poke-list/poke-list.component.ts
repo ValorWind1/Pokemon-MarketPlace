@@ -38,10 +38,10 @@ export class PokeListComponent implements OnInit {
   }
 
   getInput(n: string) {
-  if (n.length > 0) {
-   n = n[0].toUpperCase() + n.substr(1).toLowerCase();
-   this.name = n;
-  }
+    if (n.length > 0) {
+      n = n[0].toUpperCase() + n.substr(1).toLowerCase();
+      this.name = n;
+    }
   }
 
   isLegendary(dex: number) {
@@ -87,6 +87,11 @@ export class PokeListComponent implements OnInit {
 
   ngOnInit() {
     this.getPokemon();
+  }
+
+  check(poke) {
+    if(this.name === ''){return false;}
+    return poke.name.startsWith(this.name);
   }
 
 }
