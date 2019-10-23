@@ -9,12 +9,14 @@ export class AboutComponent implements OnInit, AfterViewInit, OnDestroy {
 
   constructor(private element: ElementRef) { }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
+  // sets background to black
   ngAfterViewInit() {
     this.element.nativeElement.ownerDocument.body.style.backgroundColor = 'black';
   }
+
+  // sets it back to white
   ngOnDestroy() {
     this.element.nativeElement.ownerDocument.body.style.backgroundColor = 'white';
   }

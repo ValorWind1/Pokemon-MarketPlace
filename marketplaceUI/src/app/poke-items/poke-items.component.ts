@@ -29,6 +29,7 @@ export class PokeItemsComponent implements OnInit {
 
   }
 
+ // sets delay for the added to cart alert
   async delay(ms: number, item: Items) {
     await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => item.hideAlert = false);
   }

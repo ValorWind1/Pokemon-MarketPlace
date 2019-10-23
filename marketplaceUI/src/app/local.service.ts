@@ -14,6 +14,7 @@ export class LocalService {
   saveInLocal(key, val): void {
 
     this.storage.set(key, val);
+    // updates data[] to match the saved state
     this.data[key] = this.storage.get(key);
 
    }
