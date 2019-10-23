@@ -9,6 +9,8 @@ export class Pokemon {
   attack: number;
   defense: number;
   speed: number;
+
+  // members for price and cart confirmation
   price: number;
   hideAlert = false;
 }

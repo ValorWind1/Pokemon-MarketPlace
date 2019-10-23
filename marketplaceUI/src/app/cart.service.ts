@@ -8,11 +8,16 @@ import { LocalService } from './local.service';
 })
 export class CartService {
 
+  Cart: any[] = [];
+  ItemCart: Items[] = [];
+  cartSize: number;
+
   constructor(private service: LocalService) {
     this.service.getFromLocal(1);
     this.service.getFromLocal(2);
     const data = this.service.data;
 
+    // if there is any saved data, the cart will be updated accordingly
     if (data[1]) {
       this.Cart = data[1];
     }
@@ -22,11 +27,6 @@ export class CartService {
     }
 
   }
-
-  Cart: any[] = [];
-  ItemCart: Items[] = [];
-  cartSize: number;
-
 
   add(poke: Pokemon) {
     this.Cart.push(poke);
@@ -40,7 +40,7 @@ export class CartService {
 
   setCartSize() {
     this.cartSize = this.Cart.length + this.ItemCart.length;
-
+    // saves current cart to local machine
     this.service.saveInLocal(1, this.Cart);
     this.service.saveInLocal(2, this.ItemCart);
   }

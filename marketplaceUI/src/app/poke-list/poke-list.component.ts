@@ -27,6 +27,7 @@ export class PokeListComponent implements OnInit {
     this.cartService.add(poke);
   }
 
+  // sets delay for the added to cart alert
   async delay(ms: number, poke: Pokemon) {
     await new Promise(resolve => setTimeout(() => resolve(), ms)).then(() => poke.hideAlert = false);
 }
@@ -47,6 +48,7 @@ export class PokeListComponent implements OnInit {
   isLegendary(dex: number) {
 
     for (let i = 0; i <= this.lengendaries.length; i++) {
+      // tslint:disable-next-line: triple-equals
       if (dex == this.lengendaries[i]) {
               return true;
       }
@@ -59,10 +61,9 @@ export class PokeListComponent implements OnInit {
   setPrice() {
     for (const i of this.pokemon) {
 
-
       if (i.name === 'Arceus') {
         i.price = i.total * 3000;
-      } else if(this.isLegendary(i.nationalNum)) {
+      } else if (this.isLegendary(i.nationalNum)) {
         i.price = i.total * 70;
       } else if (i.type[0] === 'Dragon' || i.type[1] === 'Dragon') {
         i.price = i.total * 50;
@@ -74,12 +75,14 @@ export class PokeListComponent implements OnInit {
 
   }
 
+  // sets the path to the type image
   concat(s: string) {
 
     s = '../../assets/' + s + '.png';
     return s;
   }
 
+  // sets the range of pokemon that will be shown
   pick(b: number, e: number) {
     this.beginning = b;
     this.end = e;
@@ -89,8 +92,9 @@ export class PokeListComponent implements OnInit {
     this.getPokemon();
   }
 
+  // filter function
   check(poke) {
-    if(this.name === ''){return false;}
+    if (this.name === '') {return false; }
     return poke.name.startsWith(this.name);
   }
 

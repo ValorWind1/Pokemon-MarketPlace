@@ -10,6 +10,7 @@ export class NavbarComponent implements OnInit {
 
   constructor(public service: CartService) { }
 
+  // gets current cart size
   ngOnInit() {
     this.service.setCartSize();
   }
