@@ -90,6 +90,7 @@ export class PokeListComponent implements OnInit {
 
   ngOnInit() {
     this.getPokemon();
+
   }
 
   // filter function
