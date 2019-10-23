@@ -1,6 +1,8 @@
-<div class="container-fluid search">
+<div class="container-fluid container">
   <input [(ngModel)]="name" (keyup)="getInput(name)" class="input" type="text" value="1" placeholder="Search by Name" aria-label="Search">
   <button (click)="getInput(name)" class="btn btn-success" type="button">Search</button>
+  <pagination-controls class="pagination" (pageChange)="p =$event"></pagination-controls>
+
 </div>
 
 
@@ -17,7 +19,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of items; let ndx = index">
+      <tr *ngFor="let item of items | paginate: {itemsPerPage:6, currentPage: p}; let ndx = index">
         <td *ngIf="!active || item.name.startsWith(name)">{{ndx+1}}</td>
 
         <td *ngIf="!active || item.name.startsWith(name)"><img src = {{item.image}}></td>
