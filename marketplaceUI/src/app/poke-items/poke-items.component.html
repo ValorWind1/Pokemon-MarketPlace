@@ -20,7 +20,7 @@
     </thead>
     <tbody>
       <tr *ngFor="let item of items | paginate: {itemsPerPage:6, currentPage: p}; let ndx = index">
-        <td *ngIf="!active || item.name.startsWith(name)">{{ndx+1}}</td>
+        <td *ngIf="!active || item.name.startsWith(name)">{{item.realId}}</td>
 
         <td *ngIf="!active || item.name.startsWith(name)"><img src = {{item.image}}></td>
         <td *ngIf="!active || item.name.startsWith(name)">{{item.name}}</td>
