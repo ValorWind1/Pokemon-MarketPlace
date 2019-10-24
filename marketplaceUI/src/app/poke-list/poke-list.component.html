@@ -31,7 +31,7 @@
       <td *ngIf="poke.nationalNum > beginning && poke.nationalNum < end || check(poke)">{{poke.name}}</td>
 
       <td *ngIf="poke.type[1] && poke.nationalNum > beginning && poke.nationalNum < end || check(poke)  && poke.type[1]">
-        <img [src] = "concat(poke.type[0])">/<img [src] = "concat(poke.type[1])">
+        <img [src] = "concat(poke.type[0])"> / <img [src] = "concat(poke.type[1])">
       </td>
 
       <td *ngIf="!poke.type[1] && poke.nationalNum > beginning && poke.nationalNum < end || check(poke) && !poke.type[1]"><img [src] = "concat(poke.type[0])"></td>
