@@ -17,16 +17,23 @@ export class PokeItemsComponent implements OnInit {
 
   getItem(): void {
     this.service.getItem()
-    .subscribe(item => {this.items = item; });
+    .subscribe(item => {this.items = item; this.setRealID();});
   }
 
   getInput(n: string) {
+    n = n[0].toUpperCase() + n.substr(1).toLowerCase();
     this.name = n;
     this.active = true;
     if (n.length === 0) {
       this.active = false;
     }
 
+  }
+
+  setRealID() {
+    for (let i = 0; i < this.items.length; i++) {
+      this.items[i].realId = i + 1;
+    }
   }
 
  // sets delay for the added to cart alert
