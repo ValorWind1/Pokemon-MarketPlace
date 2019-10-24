@@ -1,45 +1,47 @@
 package com.collabera.ugotmail;
 
+import java.net.URI;
+import java.net.URISyntaxException;
+
 import javax.mail.internet.MimeMessage;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.collabera.dto.ItemDTO;
+import com.collabera.services.ItemService;
+import com.collabera.services.MailService;
  
-@Controller
+@RestController
 public class SimpleEmailController {
+	
+	private final MailService service;
+	
+	public SimpleEmailController(MailService service) {
+		super();
+		this.service = service;
+	}
+
  
-    @Autowired
-    private JavaMailSender sender;
- 
-    @RequestMapping("/sm")
-    @ResponseBody
-    String home() {
-        try {
-            sendEmail();
+    @PostMapping("/api/sm")
+	public String post(@RequestBody @Valid String email){
+    	try {
+    		service.sendEmail(email);
+    		System.out.println("sent mail");
             return "Email Sent!";
         } catch (Exception ex) {
             return "Error in sending email: " + ex;
         }
     }
- 
-    private void sendEmail() throws Exception {
-        MimeMessage message = sender.createMimeMessage();
- 
-        
-        MimeMessageHelper helper = new MimeMessageHelper(message, true);
- 
-        helper.setTo("darth7dan@gmail.com");
-        helper.setText("<html> <img src='cid:id101'/><body></html><body>Here is our calling card!", true);
-        helper.setSubject("Thank you, for your patronage !");
- 
-        ClassPathResource file = new ClassPathResource("r.jpeg");
-        helper.addInline("id101", file);
- 
-        sender.send(message);
-    }
 }
+    

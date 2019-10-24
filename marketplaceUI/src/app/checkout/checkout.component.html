@@ -6,7 +6,7 @@
   <div class="form-row">
     <div class="form-group col-md-6">
       <label for="inputEmail4">Email</label>
-      <input type="text" class="form-control" id="validationServer01" placeholder="First name" value="" placeholder="jojo@gmail.com">
+      <input type="text" class="form-control"  [(ngModel)]="email" id="validationServer01" value="" placeholder="jojo@gmail.com" name = "emailAddress">
 
     </div>
 
@@ -63,6 +63,6 @@
   </div>
 
   </div>
-      <button class="nav-link btn btn-primary" [routerLink]="['/submit']" routerLinkActive="router-link-active">Order</button>
+      <button class="nav-link btn btn-primary" (click) = "sendMail()" [routerLink]="['/submit']" routerLinkActive="router-link-active">Order</button>
 </form>
 </div>

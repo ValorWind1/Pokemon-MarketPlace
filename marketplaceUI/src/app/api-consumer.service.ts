@@ -12,6 +12,7 @@ export class ApiConsumerService {
 
   private endpoint = 'http://localhost:8080/api/pokemon';
   private shinyEndpoint = 'http://localhost:8080/api/shiny';
+  private emailEndpoint = 'http://localhost:8080/api/sm';
 
 
   httpOptions = {
@@ -20,7 +21,19 @@ export class ApiConsumerService {
     })
   };
 
+  httpOptions2 = {
+    headers: new HttpHeaders({
+      'Content-Type': 'text/plain; charset=utf-8'
+    })
+  };
+
   constructor(private http: HttpClient) {}
+
+  sendEmail(email: string) {
+
+    return this.http.post(this.emailEndpoint, email, this.httpOptions2);
+
+  }
 
   //Pokemon CRUD
   getPokemon(): Observable<Pokemon[]> {
