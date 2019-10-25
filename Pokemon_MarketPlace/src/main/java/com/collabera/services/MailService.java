@@ -23,8 +23,8 @@ public class MailService {
         MimeMessageHelper helper = new MimeMessageHelper(message, true);
  
         helper.setTo(email);
-        helper.setText("<html> <img src='cid:id101'/><body></html><body>Here is our calling card!", true);
-        helper.setSubject("Thank you, for your patronage !");
+        helper.setText("<html> <img src='cid:id101'/><body></html><body>Your order is on the way!", true);
+        helper.setSubject("Thank you for your patronage!");
  
         ClassPathResource file = new ClassPathResource("r.jpeg");
         helper.addInline("id101", file);

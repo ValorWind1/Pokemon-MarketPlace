@@ -30,10 +30,8 @@ export class CheckoutComponent implements OnInit {
     console.log(this.cart);
   }
 
-  remove(item: any) {
-    this.service.remove(item);
-    this.service.removeItem(item);
-    this.getCart();
+  removeAll() {
+    this.service.deleteAll();
    }
 
   getTotal() {
