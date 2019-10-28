@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Items } from '../Items';
 import { CartService } from '../cart.service';
+import { ApiConsumerService } from '../api-consumer.service';
 
 
 @Component({
@@ -13,9 +13,15 @@ export class CheckoutComponent implements OnInit {
   cart = [];
   items = [];
   total = 0;
+  email;
   // this.total
 
-  constructor(private service: CartService) {}
+  constructor(private service: CartService, private emailservice: ApiConsumerService) {}
+
+  sendMail() {
+    this.emailservice.sendEmail(this.email).subscribe(poke => {console.log(poke) } );
+
+  }
 
   getCart() {
 
@@ -24,10 +30,8 @@ export class CheckoutComponent implements OnInit {
     console.log(this.cart);
   }
 
-  remove(item: any) {
-    this.service.remove(item);
-    this.service.removeItem(item);
-    this.getCart();
+  removeAll() {
+    this.service.deleteAll();
    }
 
   getTotal() {
