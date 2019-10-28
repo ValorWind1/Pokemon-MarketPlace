@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.collabera.model.MailModel;
 import com.collabera.services.MailService;
  
 @RestController
@@ -20,7 +21,8 @@ public class SimpleEmailController {
 
  
     @PostMapping("/api/sm")
-	public String post(@RequestBody @Valid String email){
+	public String post(@RequestBody @Valid MailModel email){
+    	System.out.println(email);
     	try {
     		service.sendEmail(email);
     		System.out.println("sent mail");
