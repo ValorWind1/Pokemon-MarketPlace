@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import { Pokemon } from './Pokemon';
+import { Mail } from './mail';
 
 
 @Injectable({
@@ -21,17 +22,11 @@ export class ApiConsumerService {
     })
   };
 
-  httpOptions2 = {
-    headers: new HttpHeaders({
-      'Content-Type': 'text/plain; charset=utf-8'
-    })
-  };
-
   constructor(private http: HttpClient) {}
 
-  sendEmail(email: string) {
+  sendEmail(email: Mail) {
 
-    return this.http.post(this.emailEndpoint, email, this.httpOptions2);
+    return this.http.post(this.emailEndpoint, JSON.stringify(email), this.httpOptions);
 
   }
 
