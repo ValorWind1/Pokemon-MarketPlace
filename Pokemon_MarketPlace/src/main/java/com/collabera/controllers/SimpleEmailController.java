@@ -22,7 +22,7 @@ public class SimpleEmailController {
  
     @PostMapping("/api/sm")
 	public String post(@RequestBody @Valid MailModel email){
-    	System.out.println(email);
+    	
     	try {
     		service.sendEmail(email);
     		System.out.println("sent mail");
