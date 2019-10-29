@@ -5,8 +5,9 @@ import java.util.Arrays;
 public class MailModel {
 	
 	String emailAddress;
-	Pokemon[] poke;
-	Item[] item;
+	public Pokemon[] poke;
+	public Item[] item;
+	public int total;
 	
 	public String getEmailAddress() {
 		return emailAddress;
@@ -25,12 +26,6 @@ public class MailModel {
 	}
 	public void setItem(Item[] item) {
 		this.item = item;
-	}
-	
-	@Override
-	public String toString() {
-		return "MailModel [emailAddress=" + emailAddress + ", poke=" + Arrays.toString(poke) + ", item="
-				+ Arrays.toString(item) + "]";
 	}
 
 	

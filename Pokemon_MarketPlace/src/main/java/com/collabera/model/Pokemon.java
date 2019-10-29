@@ -22,6 +22,7 @@ public class Pokemon {
 	private Integer attack;
 	private Integer defense;
 	private Integer speed;
+	private int price;
 	
 	public Pokemon() {
 		
@@ -120,5 +121,9 @@ public class Pokemon {
 
 	public void setSpeed(Integer speed) {
 		this.speed = speed;
+	}
+
+	public int getPrice() {
+		return price;
 	}
 }
