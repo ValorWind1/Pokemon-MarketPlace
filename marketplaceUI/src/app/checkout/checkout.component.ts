@@ -20,7 +20,7 @@ export class CheckoutComponent implements OnInit {
   constructor(private service: CartService, private emailservice: ApiConsumerService) {}
 
   sendMail() {
-    const mail = new Mail(this.email, this.cart, this.items);
+    const mail = new Mail(this.email, this.cart, this.items, this.total);
     this.emailservice.sendEmail(mail).subscribe(poke => {console.log(poke) } );
 
   }

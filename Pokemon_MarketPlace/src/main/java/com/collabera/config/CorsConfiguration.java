@@ -14,7 +14,6 @@ public class CorsConfiguration implements WebMvcConfigurer{
 	public void addCorsMappings(CorsRegistry registry) {
 		// TODO Auto-generated method stub
 		WebMvcConfigurer.super.addCorsMappings(registry);
-		System.out.println("This is the configuration");
 		registry.addMapping("/**")
 		.allowedOrigins("*")
 		.allowedMethods("GET","POST", "PUT", "DELETE","OPTIONS", "PATCH");
